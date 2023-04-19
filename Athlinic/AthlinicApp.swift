@@ -3,7 +3,7 @@
 //  Athlinic
 //
 //  Created by Rio Johanes Sumolang on 14/04/23.
-//
+//  Lalala
 
 import SwiftUI
 
