@@ -15,6 +15,8 @@
 		2FA54AAA29E90EA000C436C1 /* Athlinic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FA54AA829E90EA000C436C1 /* Athlinic.xcdatamodeld */; };
 		2FCDB51529EF9F2800E32DB6 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */; };
 		2FF8FC3929ECFA1700852882 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8FC3729ECFA1700852882 /* Model.xcdatamodeld */; };
+		F996E41F29FA860A008FE6F4 /* ProfileNameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */; };
+		F996E42129FA9A39008FE6F4 /* ProfileGenderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F996E42029FA9A39008FE6F4 /* ProfileGenderScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		2FA54AA929E90EA000C436C1 /* Athlinic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Athlinic.xcdatamodel; sourceTree = "<group>"; };
 		2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		2FF8FC3829ECFA1700852882 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameScreen.swift; sourceTree = "<group>"; };
+		F996E42029FA9A39008FE6F4 /* ProfileGenderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGenderScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */,
+				F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */,
+				F996E42029FA9A39008FE6F4 /* ProfileGenderScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,10 +165,12 @@
 			files = (
 				2FA54AA729E90EA000C436C1 /* Persistence.swift in Sources */,
 				2FA54AAA29E90EA000C436C1 /* Athlinic.xcdatamodeld in Sources */,
+				F996E42129FA9A39008FE6F4 /* ProfileGenderScreen.swift in Sources */,
 				2FF8FC3929ECFA1700852882 /* Model.xcdatamodeld in Sources */,
 				2FA54AA029E90E9F00C436C1 /* ContentView.swift in Sources */,
 				2FA54A9E29E90E9F00C436C1 /* AthlinicApp.swift in Sources */,
 				2FCDB51529EF9F2800E32DB6 /* LandingPageView.swift in Sources */,
+				F996E41F29FA860A008FE6F4 /* ProfileNameScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +307,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,6 +337,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
