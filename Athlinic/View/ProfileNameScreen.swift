@@ -21,6 +21,7 @@ struct ProfileNameScreen: View {
                 Text("How we should call you?")
                     .font(.system(size: 30, weight: .light))
                     .foregroundColor(.white)
+                    .offset(y: -15)
                     .padding()
                 
                 

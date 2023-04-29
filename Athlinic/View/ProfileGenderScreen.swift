@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileGenderScreen: View {
     @State private var userName = ""
-    @State private var isMaleSelected = true
+    @State private var genderSelected = true
     @State private var isTriangleButtonPressed = false
     
     var body: some View {
@@ -23,6 +23,7 @@ struct ProfileGenderScreen: View {
                 Text("What's your gender?")
                     .font(.system(size: 30, weight: .light))
                     .foregroundColor(.white)
+                    .offset(y: -15)
                     .padding()
                 
                 
@@ -32,7 +33,7 @@ struct ProfileGenderScreen: View {
                         .zIndex(1)
                         .offset(y: 230)
                     
-                    if isMaleSelected {
+                    if genderSelected {
                         Text("Male")
                             .font(.system(size: 30, weight: .bold))
                             .foregroundColor(.white)
@@ -55,7 +56,7 @@ struct ProfileGenderScreen: View {
                     }
                     
                     RoundedRectangle(cornerRadius: 30)
-                        .stroke(isMaleSelected ? CustomColor.maleBorder : CustomColor.femaleBorder, lineWidth: 5)
+                        .stroke(genderSelected ? CustomColor.maleBorder : CustomColor.femaleBorder, lineWidth: 5)
                         .frame(width: 307, height: 507)
                         .zIndex(2)
                         .overlay(
@@ -63,11 +64,11 @@ struct ProfileGenderScreen: View {
                                 .fill(Color.white)
                                 .frame(width: 20, height: 20)
                                 .offset(x: 0, y: -125)
-//                                .rotationEffect(isTriangleButtonPressed ? Angle(degrees: 180) : Angle(degrees: 0))
+                                .rotationEffect(isTriangleButtonPressed ? Angle(degrees: 180) : Angle(degrees: 0))
                                 .rotationEffect(.degrees(90))
                                 .onTapGesture {
-//                                    isTriangleButtonPressed.toggle()
-                                    isMaleSelected.toggle()
+                                    isTriangleButtonPressed.toggle()
+                                    genderSelected.toggle()
                                 }
                         )
                 }
@@ -76,7 +77,7 @@ struct ProfileGenderScreen: View {
                 
                 
                 VStack {
-                    NavigationLink(destination: ProfileGenderScreen()) {
+                    NavigationLink(destination: ProfileMeasurement()) {
                         Text("NEXT")
                             .font(.system(size: 24, weight: .semibold))
                             .frame(width: 180, height: 52)

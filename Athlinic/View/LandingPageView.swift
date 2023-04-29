@@ -22,6 +22,7 @@ struct Landing_Page_view: View {
                 VStack {
                     Image("logo")
                     //            Spacer()
+                        .offset(y: -15)
                         .padding()
                     
                     ZStack{
@@ -77,16 +78,31 @@ struct Landing_Page_view: View {
     }
 }
 
+// Create custom color
+
 struct CustomColor {
     static let topColor = Color("backgroundColor")
     static let botColor = Color("backgroundColorBot")
     static let tintShadow = Color("tintShadowButton")
     static let maleBorder = Color("maleBorder")
     static let femaleBorder = Color("femaleBorder")
+    static let midGradient = Color("midGradient")
+    static let botGradient = Color("botGradient")
     
     
     // Add more here...
 }
+
+// Remove backButton Text
+extension UINavigationController {
+
+  open override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    navigationBar.topItem?.backButtonDisplayMode = .minimal
+  }
+
+}
+
 
 struct Landing_Page_View_Previews: PreviewProvider {
     static var previews: some View {
