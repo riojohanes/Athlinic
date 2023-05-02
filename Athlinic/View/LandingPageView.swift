@@ -14,20 +14,19 @@ struct Landing_Page_view: View {
         NavigationView {
             ZStack {
                 LinearGradient(
-                    colors: [.black, CustomColor.topColor, CustomColor.botColor],
+                    colors: [.black, Color("backgroundColor"), Color("backgroundColorBot")],
                     startPoint: .top,
                     endPoint: .bottom)
                 .ignoresSafeArea(.all)
                 
                 VStack {
                     Image("logo")
-                    //            Spacer()
                         .offset(y: -15)
                         .padding()
                     
                     ZStack{
                         
-                        LinearGradient(gradient: Gradient(colors: [.clear, CustomColor.botColor,  CustomColor.botColor]), startPoint: .top, endPoint: .bottom)
+                        LinearGradient(gradient: Gradient(colors: [.clear, Color("backgroundColorBot"),  Color("backgroundColorBot")]), startPoint: .top, endPoint: .bottom)
                             .zIndex(1)
                             .offset(y: 270)
                         
@@ -53,8 +52,10 @@ struct Landing_Page_view: View {
 //                        .background(LinearGradient(gradient: Gradient(colors: [.red, .yellow]), startPoint: .leading, endPoint: .trailing))
 //                        .cornerRadius(30)
 //                        .padding(.bottom, 20)
-//                        .shadow(color: CustomColor.tintShadow, radius: 10, x: -3, y: -5)
+//                        .shadow(color: Color(tintShadowButton, radius: 10, x: -3, y: -5)
 //                        .shadow(color: .black, radius: 12, x: 3, y: 5)
+                        
+    // Navigation
                         NavigationLink(destination: ProfileNameScreen()) {
                             Text("CONTINUE")
                                 .font(.system(size: 24, weight: .semibold))
@@ -63,7 +64,7 @@ struct Landing_Page_view: View {
                                 .background(LinearGradient(gradient: Gradient(colors: [.red, .yellow]), startPoint: .leading, endPoint: .trailing))
                                 .cornerRadius(30)
 //                                .padding(.bottom, 20)
-                                .shadow(color: CustomColor.tintShadow, radius: 10, x: -3, y: -5)
+                                .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                                 .shadow(color: .black, radius: 12, x: 3, y: 5)
                         }
 
@@ -78,20 +79,7 @@ struct Landing_Page_view: View {
     }
 }
 
-// Create custom color
 
-struct CustomColor {
-    static let topColor = Color("backgroundColor")
-    static let botColor = Color("backgroundColorBot")
-    static let tintShadow = Color("tintShadowButton")
-    static let maleBorder = Color("maleBorder")
-    static let femaleBorder = Color("femaleBorder")
-    static let midGradient = Color("midGradient")
-    static let botGradient = Color("botGradient")
-    
-    
-    // Add more here...
-}
 
 // Remove backButton Text
 extension UINavigationController {

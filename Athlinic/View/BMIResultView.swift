@@ -15,7 +15,7 @@ struct BMIResultView: View {
     var body: some View {
         ZStack{
             LinearGradient(
-                colors: [.black, CustomColor.topColor, CustomColor.botColor],
+                colors: [.black, Color("backgroundColor"), Color("backgroundColorBot")],
                 startPoint: .top,
                 endPoint: .bottom)
             .ignoresSafeArea(.all)
@@ -73,7 +73,7 @@ struct BMIResultView: View {
                         .background(LinearGradient(gradient: Gradient(colors: [.red, .yellow]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(30)
                     //                            .padding(.bottom, 60)
-                        .shadow(color: CustomColor.tintShadow, radius: 10, x: -3, y: -5)
+                        .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                         .shadow(color: .black, radius: 12, x: 3, y: 5)
                 }
                 .padding()
