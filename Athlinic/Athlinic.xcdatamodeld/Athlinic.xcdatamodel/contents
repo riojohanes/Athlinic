@@ -1,49 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Achievements" representedClassName="Achievements" syncable="YES" codeGenerationType="class">
+    <entity name="Achievement" representedClassName="Achievement" syncable="YES" codeGenerationType="class">
         <attribute name="rules" optional="YES" attributeType="String"/>
+        <relationship name="excercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Excercise" inverseName="achievements" inverseEntity="Excercise"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_achievement" inverseName="achievements" inverseEntity="User_achievement"/>
     </entity>
-    <entity name="Activities" representedClassName="Activities" syncable="YES" codeGenerationType="class">
+    <entity name="Activity" representedClassName="Activity" syncable="YES" codeGenerationType="class">
+        <attribute name="is_done" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="rep" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="rest" optional="YES" attributeType="String"/>
         <attribute name="set" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="excercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Excercise" inverseName="activity" inverseEntity="Excercise"/>
+        <relationship name="schedule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Schedule" inverseName="task" inverseEntity="Schedule"/>
     </entity>
-    <entity name="Activity_histories" representedClassName="Activity_histories" syncable="YES" codeGenerationType="class">
-        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    <entity name="Activity_history" representedClassName="Activity_history" syncable="YES" codeGenerationType="class">
         <attribute name="rep" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="set" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="excercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Excercise" inverseName="histories" inverseEntity="Excercise"/>
     </entity>
-    <entity name="Excercises" representedClassName="Excercises" syncable="YES" codeGenerationType="class">
+    <entity name="Excercise" representedClassName="Excercise" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="how_to" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="steps" optional="YES" attributeType="String"/>
+        <relationship name="achievements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Achievement" inverseName="excercise" inverseEntity="Achievement"/>
+        <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="excercises" inverseEntity="Activity"/>
+        <relationship name="histories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity_history" inverseName="excercise" inverseEntity="Activity_history"/>
     </entity>
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-    </entity>
-    <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
+    <entity name="Profile" representedClassName=".Profile" syncable="YES" codeGenerationType="class">
         <attribute name="current_height" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="current_program" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="current_weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="dob" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="gender" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="achievements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User_achievements"/>
     </entity>
-    <entity name="Programs" representedClassName="Programs" syncable="YES" codeGenerationType="class">
+    <entity name="Program" representedClassName="Program" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="tags" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="bundles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Schedule" inverseName="program" inverseEntity="Schedule"/>
     </entity>
-    <entity name="Schedules" representedClassName="Schedules" syncable="YES" codeGenerationType="class">
+    <entity name="Schedule" representedClassName="Schedule" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="bundles" inverseEntity="Program"/>
+        <relationship name="task" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="schedule" inverseEntity="Activity"/>
     </entity>
-    <entity name="User_achievements" representedClassName="User_achievements" syncable="YES" codeGenerationType="class">
-        <attribute name="created_at" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    <entity name="User_achievement" representedClassName="User_achievement" syncable="YES" codeGenerationType="class">
+        <relationship name="achievements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Achievement" inverseName="user" inverseEntity="Achievement"/>
     </entity>
 </model>
