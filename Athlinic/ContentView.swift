@@ -9,6 +9,9 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    
+    @State var isFirstTime = false
+    
     //    @Environment(\.managedObjectContext) private var viewContext
     //
     //    @FetchRequest(
@@ -17,7 +20,14 @@ struct ContentView: View {
     //    private var items: FetchedResults<Item>
     
     var body: some View {
-        Landing_Page_view()
+        
+        if (isFirstTime) {
+            Landing_Page_view()
+        } else {
+            VStack{
+                MainNavigationComponent()
+            }
+        }
         //        NavigationView {
         //            List {
         //                ForEach(items) { item in

@@ -14,6 +14,10 @@
 		2FA54AA729E90EA000C436C1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA54AA629E90EA000C436C1 /* Persistence.swift */; };
 		2FA54AAA29E90EA000C436C1 /* Athlinic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FA54AA829E90EA000C436C1 /* Athlinic.xcdatamodeld */; };
 		2FCDB51529EF9F2800E32DB6 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */; };
+		65AD2E722A023BBF00DF17D8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E712A023BBE00DF17D8 /* Color.swift */; };
+		65AD2E742A02625A00DF17D8 /* ActivityCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */; };
+		65FB21DA2A02013B00464A66 /* TodayScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB21D92A02013B00464A66 /* TodayScheduleView.swift */; };
+		65FB21DD2A0226D100464A66 /* MainNavigationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB21DC2A0226D100464A66 /* MainNavigationComponent.swift */; };
 		F916068B29FBAD2C003DA196 /* ProfileMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F916068A29FBAD2C003DA196 /* ProfileMeasurement.swift */; };
 		F916068D29FCFDD3003DA196 /* BMIResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F916068C29FCFDD3003DA196 /* BMIResultView.swift */; };
 		F996E41F29FA860A008FE6F4 /* ProfileNameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */; };
@@ -29,6 +33,10 @@
 		2FA54AA629E90EA000C436C1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		2FA54AA929E90EA000C436C1 /* Athlinic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Athlinic.xcdatamodel; sourceTree = "<group>"; };
 		2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
+		65AD2E712A023BBE00DF17D8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCheckbox.swift; sourceTree = "<group>"; };
+		65FB21D92A02013B00464A66 /* TodayScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayScheduleView.swift; sourceTree = "<group>"; };
+		65FB21DC2A0226D100464A66 /* MainNavigationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationComponent.swift; sourceTree = "<group>"; };
 		F916068A29FBAD2C003DA196 /* ProfileMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMeasurement.swift; sourceTree = "<group>"; };
 		F916068C29FCFDD3003DA196 /* BMIResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIResultView.swift; sourceTree = "<group>"; };
 		F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameScreen.swift; sourceTree = "<group>"; };
@@ -95,13 +103,25 @@
 		2FCDB51329EF9EEA00E32DB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				65FB21DB2A0226AB00464A66 /* Component */,
 				2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */,
 				F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */,
 				F996E42029FA9A39008FE6F4 /* ProfileGenderScreen.swift */,
 				F916068A29FBAD2C003DA196 /* ProfileMeasurement.swift */,
 				F916068C29FCFDD3003DA196 /* BMIResultView.swift */,
+				65FB21D92A02013B00464A66 /* TodayScheduleView.swift */,
+				65AD2E712A023BBE00DF17D8 /* Color.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		65FB21DB2A0226AB00464A66 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				65FB21DC2A0226D100464A66 /* MainNavigationComponent.swift */,
+				65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,8 +195,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FA54AA729E90EA000C436C1 /* Persistence.swift in Sources */,
+				65FB21DD2A0226D100464A66 /* MainNavigationComponent.swift in Sources */,
+				65AD2E742A02625A00DF17D8 /* ActivityCheckbox.swift in Sources */,
+				65FB21DA2A02013B00464A66 /* TodayScheduleView.swift in Sources */,
 				2FA54AAA29E90EA000C436C1 /* Athlinic.xcdatamodeld in Sources */,
 				F996E42129FA9A39008FE6F4 /* ProfileGenderScreen.swift in Sources */,
+				65AD2E722A023BBF00DF17D8 /* Color.swift in Sources */,
 				2FA54AA029E90E9F00C436C1 /* ContentView.swift in Sources */,
 				F916068B29FBAD2C003DA196 /* ProfileMeasurement.swift in Sources */,
 				2FA54A9E29E90E9F00C436C1 /* AthlinicApp.swift in Sources */,
@@ -239,7 +263,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -293,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
