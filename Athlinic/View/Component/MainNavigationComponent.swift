@@ -10,73 +10,69 @@ import SwiftUI
 struct MainNavigationComponent: View {
     
     @State var selection = 0
+    @State private var offsetValue: CGFloat = -5
     
     var body: some View {
-        if #available(iOS 16.0, *) {
-            TabView(selection: $selection) {
-                // First Menu Item
-                NavigationStack {
-                        TodayScheduleView()
-                }
-                .tabItem {
-                    Image("menuIconCalendar")
-                }
-                .tag(0)
+        VStack{
+            Spacer()
+            ZStack{
                 
-                // Second Menu Item
-                NavigationStack {
-                    List {
-                        Text("Home Content 2")
-                            .frame(height: 700)
-                    }
-                    .navigationTitle("Home Title 2")
-                }
-                .tabItem {
-                    Image("menuIconCalendar")
+                // White Background
+                RoundedRectangle(cornerRadius: 50)
+                    .fill(Color.white)
+                    .frame(height: 78)
+                    .shadow(color: ColorPalette.shadowColor, radius: 4, x: 0, y: 2)
+                    .padding(.horizontal)
+                
+                // Position Marker
+                RoundedRectangle(cornerRadius: 50)
+                    .fill(ColorPalette.primary)
+                    .frame(width: 100, height: 67)
+                    .offset(x: offsetValue)
+                
+                // Icon Images
+                HStack(spacing: 80){
+                    Image("menuIconAchievement")
                         .resizable()
-                        .frame(width: 10, height: 10)
                         .aspectRatio(contentMode: .fit)
-                    Text("Equipment")
-                }
-                .tag(1)
-                
-                // Third Menu Item
-                NavigationStack {
-                    List {
-                        Text("Home Content 2")
-                            .frame(height: 500)
-                    }
-                    .navigationTitle("Home Title")
-                }
-                .tabItem {
+                        .frame(height: 40)
+                        .onTapGesture {
+                            withAnimation {
+                                self.offsetValue = calculateOffsetByPosition(position: 1) // Change the offset value
+                            }
+                        }
                     Image("menuIconCalendar")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 25, height: 25)
-                    Text("Achievement")
-                }
-                .tag(2)
-                
-                // Fourth Menu Item
-                NavigationStack {
-                    List {
-                        Text("Home Content")
-                            .frame(height: 500)
-                    }
-                    .navigationTitle("Home Title")
-                }
-                .tabItem {
-                    Image("menuIconCalendar")
+                        .frame(height: 40)
+                        .onTapGesture {
+                            withAnimation {
+                                self.offsetValue = calculateOffsetByPosition(position: 2) // Change the offset value
+                            }
+                        }
+                    Image("menuIconEquipment")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 25, height: 25)
-                    Text("Profile")
+                        .frame(height: 40)
+                        .onTapGesture {
+                            withAnimation {
+                                self.offsetValue = calculateOffsetByPosition(position: 3) // Change the offset value
+                            }
+                        }
                 }
-                .tag(3)
-            } // End Of Tab View
-            .toolbar(.visible, for: .tabBar)
-            .toolbarBackground(Color.yellow, for: .tabBar)
-        } // End If
+            }
+        }
+    }
+}
+
+func calculateOffsetByPosition(position: Int) -> CGFloat {
+    switch position {
+    case 1:
+        return -118
+    case 3:
+        return 115.0
+    default:
+        return -5
     }
 }
 

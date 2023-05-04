@@ -16,6 +16,7 @@
 		2FCDB51529EF9F2800E32DB6 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */; };
 		65AD2E722A023BBF00DF17D8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E712A023BBE00DF17D8 /* Color.swift */; };
 		65AD2E742A02625A00DF17D8 /* ActivityCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */; };
+		65AD2E762A03719300DF17D8 /* CardBackgroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E752A03719300DF17D8 /* CardBackgroundComponent.swift */; };
 		65FB21DA2A02013B00464A66 /* TodayScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB21D92A02013B00464A66 /* TodayScheduleView.swift */; };
 		65FB21DD2A0226D100464A66 /* MainNavigationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB21DC2A0226D100464A66 /* MainNavigationComponent.swift */; };
 		F916068B29FBAD2C003DA196 /* ProfileMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F916068A29FBAD2C003DA196 /* ProfileMeasurement.swift */; };
@@ -35,6 +36,7 @@
 		2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		65AD2E712A023BBE00DF17D8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCheckbox.swift; sourceTree = "<group>"; };
+		65AD2E752A03719300DF17D8 /* CardBackgroundComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackgroundComponent.swift; sourceTree = "<group>"; };
 		65FB21D92A02013B00464A66 /* TodayScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayScheduleView.swift; sourceTree = "<group>"; };
 		65FB21DC2A0226D100464A66 /* MainNavigationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationComponent.swift; sourceTree = "<group>"; };
 		F916068A29FBAD2C003DA196 /* ProfileMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMeasurement.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				65FB21DC2A0226D100464A66 /* MainNavigationComponent.swift */,
 				65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */,
+				65AD2E752A03719300DF17D8 /* CardBackgroundComponent.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				2FA54AAA29E90EA000C436C1 /* Athlinic.xcdatamodeld in Sources */,
 				F996E42129FA9A39008FE6F4 /* ProfileGenderScreen.swift in Sources */,
 				65AD2E722A023BBF00DF17D8 /* Color.swift in Sources */,
+				65AD2E762A03719300DF17D8 /* CardBackgroundComponent.swift in Sources */,
 				2FA54AA029E90E9F00C436C1 /* ContentView.swift in Sources */,
 				F916068B29FBAD2C003DA196 /* ProfileMeasurement.swift in Sources */,
 				2FA54A9E29E90E9F00C436C1 /* AthlinicApp.swift in Sources */,

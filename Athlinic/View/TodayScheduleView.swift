@@ -26,90 +26,81 @@ struct TodayScheduleView: View {
                 endPoint: .bottom)
             .ignoresSafeArea(.all)
                 
-            ScrollView{
+//            ScrollView{
                 ZStack{
                     VStack{
+                        HStack{
+                            Spacer()
+                            Text("JHON DOE")
+                                .foregroundColor(.white)
+                                .font(.system(size: 24))
+                            Image("menuIconProfile")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 40)
+                        }
+                        .padding(.horizontal)
+                        
                         Image("maleHomeDisplay")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 180)
+                            .frame(width: 380)
+                            .offset(x: 50)
                         Spacer()
                     }
                     
                     VStack{
+                        Spacer()
+                            .frame(height: 160)
+                        
                         VStack(alignment: .trailing){
-                            Text("Hey")
+                            Text("You're")
                                 .foregroundColor(.white)
-                                .font(.system(size: 30))
-                            Text("Jhon!")
+                                .font(.system(size: 28))
+                            Text("Overweight")
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
-                                .font(.system(size: 30))
+                                .font(.system(size: 28))
                         }
-                        .padding(30)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .offset(x: -190)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                         
                         Spacer()
                             .frame(height: 100)
+                        Text("Today's Quest")
+                            .foregroundColor(.white)
+                            .font(.system(size: 30, weight: .semibold))
                         
-                        VStack(alignment: .leading){
-                            Text("You're,")
-                                .foregroundColor(.white)
-                            Text("Overweight!")
-                                .foregroundColor(.white)
-                                .fontWeight(.bold)
-                        }
-                        .padding(30)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         
                         ZStack {
-                            // The Rounded Box
-                            RoundedRectangle(cornerRadius: 10)
-                                // Gradient Color
-                                .fill(LinearGradient(gradient: Gradient(colors: [ColorPalette.gradientStart, ColorPalette.gradientEnd]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.white, lineWidth: 0) // Rounded border with white color and 2pt width
-                                )
+                            CardBackgroundComponent()
                             
-                            VStack {
-                                HStack{
-                                    Text("Today's Quest")
-                                        .font(.system(size: 30, weight: .bold))
-                                    Spacer()
-                                    Text("UPPER BODY")
-                                }
-                                .padding(.init(top: 15, leading: 15, bottom: 0, trailing: 15))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-//                                .background(Color.red)
-                                
-                                VStack{
-                                    ForEach(activities, id: \.self) { activity in
-                                        ActivityCardView(activity: activity, isChecked: false)
+                            // The Content
+                            ScrollView{
+                                VStack {
+                                    // Cards
+                                    VStack{
+                                        ForEach(activities, id: \.self) { activity in
+                                            ActivityCardView(activity: activity, isChecked: false)
+                                        }
                                     }
-                                }
-                                .padding()
-                                
-                                NavigationLink(destination: ProfileGenderScreen()) {
-                                    HStack{
-                                        Text("See complete program")
-                                            .foregroundColor(.primary)
-                                        Spacer()
-                                        Text(">>")
-                                            .foregroundColor(.primary)
-                                    }
-                                    .padding(.init(top: 0, leading: 15, bottom: 15, trailing: 15))
+                                    .padding()
                                 }
                             }
-//                            .background(Color.red)
+                            .clipShape(RoundedRectangle(cornerRadius: 34))
                         }
-//                        .background(Color.red)
+                        .frame(height: 290)
+                        .clipped()
                         
                         Spacer()
                     }
+                    .padding(.horizontal)
                 }
-            }
-        }
+//            } // End ScrollView
+            
+            MainNavigationComponent()
+        } // End Z Stack
     }
 }
 
@@ -136,32 +127,55 @@ struct ActivityCardView: View {
     
     var body: some View {
         HStack(spacing: 15) {
-            Image("menuIconProfile")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 70)
-                .clipped()
+            ZStack{
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            gradient: Gradient(colors: [ColorPalette.iconGradientEnd, ColorPalette.iconGradientStart]),
+                            center: .center,
+                            startRadius: 50,
+                            endRadius: 0
+                        )
+                    )
+                Image("menuIconEquipment")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30)
+            }
+            .frame(width: 55)
+//            Image("menuIconProfile")
+//                .resizable()
+//                .scaledToFill()
+//                .frame(width: 70)
+//                .clipped()
             
             VStack(alignment: .leading) {
                 Text(activity.excerciseName)
                     .font(.headline)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20))
                 
-                Text("\(activity.set) set (\(String(activity.rep)) rep")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                Text("\(activity.rest)s rest")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                HStack{
+                    VStack(alignment: .leading){
+                        Text("\(activity.set) set (\(String(activity.rep)) rep")
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                        
+                        Text("\(activity.rest)s rest")
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                            
+                    }
+                    Spacer()
+                    ActivityCheckbox(isChecked: $isChecked)
+                }
             }
-            Spacer()
             
-            ActivityCheckbox(isChecked: $isChecked)
             
         }
         .padding()
-        .background(Color.white)
-        .cornerRadius(10)
+        .background(ColorPalette.cardBackground)
+        .cornerRadius(20)
         .shadow(radius: 5)
     }
     
