@@ -10,18 +10,23 @@ import SwiftUI
 struct CardBackgroundComponent: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 34)
-            // Gradient Color
-            .fill(LinearGradient(gradient: Gradient(colors: [ColorPalette.gradientStart, ColorPalette.gradientEnd.opacity(0.8)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+        // Gradient Color
+            
+            .fill(LinearGradient(gradient: Gradient(colors: [ColorPalette.gradientStart.opacity(0.7), ColorPalette.gradientEnd.opacity(0.8)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+//            .border(.white)
+//            .cornerRadius(34)
             .overlay(
                 RoundedRectangle(cornerRadius: 34)
                     .stroke(ColorPalette.cardBorder, lineWidth: 2) // Rounded border with white color and 2pt width
                     .shadow(color: Color.black.opacity(1), radius: 10, x: 0, y: 0)
-//                                        .mask(
-//                                            RoundedRectangle(cornerRadius: 25)
-//                                                .fill(Color.white)
-//                                                .padding(4)
-//                                        )
+                    .blur(radius: 5)
+                //                                        .mask(
+                //                                            RoundedRectangle(cornerRadius: 25)
+                //                                                .fill(Color.white)
+                //                                                .padding(4)
+                //                                        )
             )
+        
     }
 }
 

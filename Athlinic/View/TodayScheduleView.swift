@@ -21,7 +21,7 @@ struct TodayScheduleView: View {
     var body: some View {
         ZStack{
             LinearGradient(
-                colors: [.black],
+                colors: [ColorPalette.backProfGratdientStart, ColorPalette.backProfGratdientEnd],
                 startPoint: .top,
                 endPoint: .bottom)
             .ignoresSafeArea(.all)
@@ -85,6 +85,7 @@ struct TodayScheduleView: View {
                                             ActivityCardView(activity: activity, isChecked: false)
                                         }
                                     }
+                                    .offset(y: 6)
                                     .padding()
                                 }
                             }
@@ -168,12 +169,13 @@ struct ActivityCardView: View {
                     }
                     Spacer()
                     ActivityCheckbox(isChecked: $isChecked)
+                        .offset(y: -9)
                 }
             }
-            
+
             
         }
-        .padding()
+        .padding(10)
         .background(ColorPalette.cardBackground)
         .cornerRadius(20)
         .shadow(radius: 5)

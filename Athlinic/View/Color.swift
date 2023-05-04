@@ -26,6 +26,16 @@ class ColorPalette {
     // Icon Gradient
     static let iconGradientStart = Color(UIColor(hex: "#FFB706") ?? .clear)
     static let iconGradientEnd = Color(UIColor(hex: "#FF8B00") ?? .clear)
+    
+    // Profile back gradient
+    static let backProfGratdientStart = Color(UIColor(hex: "#000103") ?? .clear)
+    static let backProfGratdientEnd = Color(UIColor(hex: "#001926") ?? .clear)
+    static let updateButton = Color(UIColor(hex: "#FFB706") ?? .clear)
+    static let doneButton = Color(UIColor(hex: "#06FF14") ?? .clear)
+    
+    
+    
+
 }
 
 extension UIColor {

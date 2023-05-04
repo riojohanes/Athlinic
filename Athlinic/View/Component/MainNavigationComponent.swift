@@ -11,6 +11,8 @@ struct MainNavigationComponent: View {
     
     @State var selection = 0
     @State private var offsetValue: CGFloat = -5
+    @State private var isPositionMarkerHidden = false 
+
     
     var body: some View {
         VStack{
@@ -25,10 +27,12 @@ struct MainNavigationComponent: View {
                     .padding(.horizontal)
                 
                 // Position Marker
-                RoundedRectangle(cornerRadius: 50)
-                    .fill(ColorPalette.primary)
-                    .frame(width: 100, height: 67)
-                    .offset(x: offsetValue)
+                if !isPositionMarkerHidden {
+                    RoundedRectangle(cornerRadius: 50)
+                        .fill(ColorPalette.primary)
+                        .frame(width: 100, height: 67)
+                        .offset(x: offsetValue)
+                }
                 
                 // Icon Images
                 HStack(spacing: 80){

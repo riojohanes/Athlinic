@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
     
-    @State var isFirstTime = false
+    @State var isFirstTime = true
     
     //    @Environment(\.managedObjectContext) private var viewContext
     //
@@ -24,9 +24,7 @@ struct ContentView: View {
         if (isFirstTime) {
             Landing_Page_view()
         } else {
-            VStack{
-                MainNavigationComponent()
-            }
+            TodayScheduleView()
         }
         //        NavigationView {
         //            List {

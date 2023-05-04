@@ -22,3 +22,9 @@ struct ActivityCheckbox: View {
         }
     }
 }
+
+struct ActivityCheckboxPreviews: PreviewProvider {
+    static var previews: some View {
+        ActivityCheckbox(isChecked: .constant(true))
+    }
+}
