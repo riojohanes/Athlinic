@@ -13,6 +13,8 @@
 		2FA54AA529E90EA000C436C1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA54AA429E90EA000C436C1 /* Preview Assets.xcassets */; };
 		2FA54AA729E90EA000C436C1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA54AA629E90EA000C436C1 /* Persistence.swift */; };
 		2FA54AAA29E90EA000C436C1 /* Athlinic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FA54AA829E90EA000C436C1 /* Athlinic.xcdatamodeld */; };
+		2FC3119B2A03A66700778B6F /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC311992A03A66700778B6F /* Profile+CoreDataClass.swift */; };
+		2FC3119C2A03A66700778B6F /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC3119A2A03A66700778B6F /* Profile+CoreDataProperties.swift */; };
 		2FCDB51529EF9F2800E32DB6 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */; };
 		65AD2E722A023BBF00DF17D8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E712A023BBE00DF17D8 /* Color.swift */; };
 		65AD2E742A02625A00DF17D8 /* ActivityCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */; };
@@ -33,6 +35,8 @@
 		2FA54AA429E90EA000C436C1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2FA54AA629E90EA000C436C1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		2FA54AA929E90EA000C436C1 /* Athlinic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Athlinic.xcdatamodel; sourceTree = "<group>"; };
+		2FC311992A03A66700778B6F /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Profile+CoreDataClass.swift"; path = "../../Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2FC3119A2A03A66700778B6F /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Profile+CoreDataProperties.swift"; path = "../../Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		65AD2E712A023BBE00DF17D8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCheckbox.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 		2F5A48822A00D33A00074722 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2FC311992A03A66700778B6F /* Profile+CoreDataClass.swift */,
+				2FC3119A2A03A66700778B6F /* Profile+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FA54AA729E90EA000C436C1 /* Persistence.swift in Sources */,
+				2FC3119B2A03A66700778B6F /* Profile+CoreDataClass.swift in Sources */,
 				65FB21DD2A0226D100464A66 /* MainNavigationComponent.swift in Sources */,
 				65AD2E742A02625A00DF17D8 /* ActivityCheckbox.swift in Sources */,
 				65FB21DA2A02013B00464A66 /* TodayScheduleView.swift in Sources */,
@@ -210,6 +217,7 @@
 				2FA54A9E29E90E9F00C436C1 /* AthlinicApp.swift in Sources */,
 				2FCDB51529EF9F2800E32DB6 /* LandingPageView.swift in Sources */,
 				F916068D29FCFDD3003DA196 /* BMIResultView.swift in Sources */,
+				2FC3119C2A03A66700778B6F /* Profile+CoreDataProperties.swift in Sources */,
 				F996E41F29FA860A008FE6F4 /* ProfileNameScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

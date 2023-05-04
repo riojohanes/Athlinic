@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BMIResultView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     
     @Binding var genderSelected: Bool
 
@@ -62,6 +64,10 @@ struct BMIResultView: View {
             
             VStack {
                 Spacer()
+                Text("Your height : \(getHeight() ?? 1.0) Meter")
+                    .foregroundColor(.white)
+                Text("Your weight : \(getWeight() ?? 2.0) Kg")
+                    .foregroundColor(.white)
                 Text("You're **\(bmiCategory)**!")
                     .font(.largeTitle)
 //                    .font(.system(size: 35))
@@ -87,7 +93,35 @@ struct BMIResultView: View {
             
             
         }
-        
+    }
+    private func getHeight() -> Double? {
+        let fetchRequest =
+        NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                return profile.current_height
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
+    }
+    
+    private func getWeight() -> Double? {
+        let fetchRequest =
+        NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                return profile.current_weight
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
     }
 }
 
