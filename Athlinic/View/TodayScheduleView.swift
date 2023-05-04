@@ -21,7 +21,7 @@ struct TodayScheduleView: View {
     var body: some View {
         ZStack{
             LinearGradient(
-                colors: [.black, CustomColor.topColor, CustomColor.botColor],
+                colors: [.black],
                 startPoint: .top,
                 endPoint: .bottom)
             .ignoresSafeArea(.all)
