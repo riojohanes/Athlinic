@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ProfileGenderScreen: View {
     @State private var userName = ""
-    @State private var genderSelected = true
+    @State var isMaleSelected = true
     @State private var isTriangleButtonPressed = false
     
     var body: some View {
         ZStack {
             LinearGradient(
-                colors: [.black, CustomColor.topColor, CustomColor.botColor],
+                colors: [.black, Color("backgroundColor"), Color("backgroundColorBot")],
                 startPoint: .top,
                 endPoint: .bottom)
             .ignoresSafeArea(.all)
@@ -29,11 +29,11 @@ struct ProfileGenderScreen: View {
                 
                 ZStack{
                     
-                    LinearGradient(gradient: Gradient(colors: [.clear, CustomColor.botColor, CustomColor.botColor]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [.clear, Color("backgroundColorBot"), Color("backgroundColorBot")]), startPoint: .top, endPoint: .bottom)
                         .zIndex(1)
                         .offset(y: 230)
                     
-                    if genderSelected {
+                    if isMaleSelected {
                         Text("Male")
                             .font(.system(size: 30, weight: .bold))
                             .foregroundColor(.white)
@@ -56,7 +56,7 @@ struct ProfileGenderScreen: View {
                     }
                     
                     RoundedRectangle(cornerRadius: 30)
-                        .stroke(genderSelected ? CustomColor.maleBorder : CustomColor.femaleBorder, lineWidth: 5)
+                        .stroke(isMaleSelected ? Color("maleBorder") : Color("femaleBorder"), lineWidth: 5)
                         .frame(width: 307, height: 507)
                         .zIndex(2)
                         .overlay(
@@ -68,7 +68,7 @@ struct ProfileGenderScreen: View {
                                 .rotationEffect(.degrees(90))
                                 .onTapGesture {
                                     isTriangleButtonPressed.toggle()
-                                    genderSelected.toggle()
+                                    isMaleSelected.toggle()
                                 }
                         )
                 }
@@ -77,7 +77,7 @@ struct ProfileGenderScreen: View {
                 
                 
                 VStack {
-                    NavigationLink(destination: ProfileMeasurement()) {
+                    NavigationLink(destination: ProfileMeasurement(genderSelected: $isMaleSelected)) {
                         Text("NEXT")
                             .font(.system(size: 24, weight: .semibold))
                             .frame(width: 180, height: 52)
@@ -85,13 +85,13 @@ struct ProfileGenderScreen: View {
                             .background(LinearGradient(gradient: Gradient(colors: [.red, .yellow]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(30)
                         //                            .padding(.bottom, 60)
-                            .shadow(color: CustomColor.tintShadow, radius: 10, x: -3, y: -5)
+                            .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                             .shadow(color: .black, radius: 12, x: 3, y: 5)
                     }
                     
                 }
                 //                .padding(.bottom)
-                .frame(height: 100)
+//                .frame(height: 100)
             }
         }
     }

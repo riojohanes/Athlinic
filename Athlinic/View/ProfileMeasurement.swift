@@ -9,14 +9,16 @@ import SwiftUI
 
 struct ProfileMeasurement: View {
     
-    @State private var genderSelected = false
+//    @State private var genderSelected = false
     @State private var userHeight = ""
     @State private var userWeight = ""
+    
+    @Binding var genderSelected: Bool
     
     var body: some View {
         ZStack{
             LinearGradient(
-                colors: [.black, CustomColor.topColor, CustomColor.botColor],
+                colors: [.black, Color("backgroundColor"), Color("backgroundColorBot")],
                 startPoint: .top,
                 endPoint: .bottom)
             .ignoresSafeArea(.all)
@@ -92,7 +94,7 @@ struct ProfileMeasurement: View {
                 
                 
                 
-                NavigationLink(destination: BMIResultView(bmi: bmi, bmiCategory: bmiCategory)) {
+                NavigationLink(destination: BMIResultView(genderSelected: $genderSelected, bmi: bmi, bmiCategory: bmiCategory)) {
                     Text("NEXT")
                         .font(.system(size: 24, weight: .semibold))
                         .frame(width: 180, height: 52)
@@ -100,12 +102,10 @@ struct ProfileMeasurement: View {
                         .background(LinearGradient(gradient: Gradient(colors: [.red, .yellow]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(30)
                     //                            .padding(.bottom, 60)
-                        .shadow(color: CustomColor.tintShadow, radius: 10, x: -3, y: -5)
+                        .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                         .shadow(color: .black, radius: 12, x: 3, y: 5)
                 }
-                .padding()
-                .padding(.bottom, 30)
-                //                .frame(height: 100)
+//                .padding(.bottom, 30)
             }
         }
     }
@@ -137,6 +137,6 @@ struct ProfileMeasurement: View {
 
 struct ProfileMeasurement_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileMeasurement()
+        ProfileMeasurement(genderSelected: .constant(true))
     }
 }

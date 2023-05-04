@@ -9,29 +9,31 @@ import SwiftUI
 
 struct BMIResultView: View {
     
+    @Binding var genderSelected: Bool
+
     var bmi: Double
     var bmiCategory: String
         
     var body: some View {
         ZStack{
             LinearGradient(
-                colors: [.black, CustomColor.topColor, CustomColor.botColor],
+                colors: [.black, Color("backgroundColor"), Color("backgroundColorBot")],
                 startPoint: .top,
                 endPoint: .bottom)
             .ignoresSafeArea(.all)
             
             if bmiCategory == "Overweight" {
-                Image("maleOverResult")
+                Image("\(genderSelected ? "maleOverResult" : "femaleOverResult")")
                     .resizable()
                     .scaledToFit()
                     
             } else if bmiCategory == "Normal" {
-                Image("maleNormalResult")
+                Image("\(genderSelected ? "maleNormalResult" : "femaleNormalResult")")
                     .resizable()
                     .scaledToFit()
 
             } else {
-                Image("maleUnderResult")
+                Image("\(genderSelected ? "maleUnderResult" : "femaleUnderResult")")
                     .resizable()
                     .scaledToFit()
             }
@@ -50,7 +52,7 @@ struct BMIResultView: View {
             //                    .frame(width: 220)
             //            }
             
-            Image("normalTranslucent")
+            Image("\(bmiCategory == "Normal" ? "normalTranslucent" : "overUnderTranslucent")")
                 .resizable()
                 .scaledToFit()
                 .offset(y: 150)
@@ -73,11 +75,11 @@ struct BMIResultView: View {
                         .background(LinearGradient(gradient: Gradient(colors: [.red, .yellow]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(30)
                     //                            .padding(.bottom, 60)
-                        .shadow(color: CustomColor.tintShadow, radius: 10, x: -3, y: -5)
+                        .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                         .shadow(color: .black, radius: 12, x: 3, y: 5)
                 }
-                .padding()
-                .padding(.bottom, 30)
+//                .padding()
+//                .padding(.bottom, 30)
                 //                .frame(height: 100)
                 
                 
@@ -91,6 +93,6 @@ struct BMIResultView: View {
 
 struct BMIResultView_Previews: PreviewProvider {
     static var previews: some View {
-        BMIResultView(bmi: 22.5, bmiCategory: "Underweight")
+        BMIResultView(genderSelected: .constant(true), bmi: 22.5, bmiCategory: "Underweight")
     }
 }
