@@ -19,30 +19,40 @@ struct Landing_Page_view: View {
                     endPoint: .bottom)
                 .ignoresSafeArea(.all)
                 
+                
+                
+                
+                
+                
                 VStack {
                     Image("logo")
                         .offset(y: -15)
                         .padding()
                     
-                    ZStack{
-                        
+//                    ZStack{
+//
+//
+//                    }
+//                    .offset(y: -20)
+                    
+                    ZStack {
                         LinearGradient(gradient: Gradient(colors: [.clear, Color("backgroundColorBot"),  Color("backgroundColorBot")]), startPoint: .top, endPoint: .bottom)
                             .zIndex(1)
-                            .offset(y: 270)
+                        .offset(y: 270)
                         
                         Image("landingpage-human")
                             .resizable()
                             .scaledToFit()
                     }
-                    .offset(y: -20)
+                    
                     
                     
                     VStack {
                         Text("Ready to build yet?")
                             .font(.system(size: 34, weight: .light))
                             .foregroundColor(.white)
-                            .offset(y: -40)
-                        Spacer()
+//                            .offset(y: -40)
+//                        Spacer()
 //                        Button("CONTINUE") {
 //
 //                        }
@@ -67,14 +77,11 @@ struct Landing_Page_view: View {
                                 .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                                 .shadow(color: .black, radius: 12, x: 3, y: 5)
                         }
-
                     }
-                    .padding(.bottom, 35)
-                    .frame(height: 100)
                 }
             }
             
-                    }
+        }
         
     }
 }

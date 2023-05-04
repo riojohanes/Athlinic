@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ProfileMeasurement: View {
     
-    @State private var genderSelected = false
+//    @State private var genderSelected = false
     @State private var userHeight = ""
     @State private var userWeight = ""
+    
+    @Binding var genderSelected: Bool
     
     var body: some View {
         ZStack{
@@ -92,7 +94,7 @@ struct ProfileMeasurement: View {
                 
                 
                 
-                NavigationLink(destination: BMIResultView(bmi: bmi, bmiCategory: bmiCategory)) {
+                NavigationLink(destination: BMIResultView(genderSelected: $genderSelected, bmi: bmi, bmiCategory: bmiCategory)) {
                     Text("NEXT")
                         .font(.system(size: 24, weight: .semibold))
                         .frame(width: 180, height: 52)
@@ -103,9 +105,7 @@ struct ProfileMeasurement: View {
                         .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                         .shadow(color: .black, radius: 12, x: 3, y: 5)
                 }
-                .padding()
-                .padding(.bottom, 30)
-                //                .frame(height: 100)
+//                .padding(.bottom, 30)
             }
         }
     }
@@ -137,6 +137,6 @@ struct ProfileMeasurement: View {
 
 struct ProfileMeasurement_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileMeasurement()
+        ProfileMeasurement(genderSelected: .constant(true))
     }
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BMIResultView: View {
     
+    @Binding var genderSelected: Bool
+
     var bmi: Double
     var bmiCategory: String
         
@@ -21,17 +23,17 @@ struct BMIResultView: View {
             .ignoresSafeArea(.all)
             
             if bmiCategory == "Overweight" {
-                Image("maleOverResult")
+                Image("\(genderSelected ? "maleOverResult" : "femaleOverResult")")
                     .resizable()
                     .scaledToFit()
                     
             } else if bmiCategory == "Normal" {
-                Image("maleNormalResult")
+                Image("\(genderSelected ? "maleNormalResult" : "femaleNormalResult")")
                     .resizable()
                     .scaledToFit()
 
             } else {
-                Image("maleUnderResult")
+                Image("\(genderSelected ? "maleUnderResult" : "femaleUnderResult")")
                     .resizable()
                     .scaledToFit()
             }
@@ -50,7 +52,7 @@ struct BMIResultView: View {
             //                    .frame(width: 220)
             //            }
             
-            Image("normalTranslucent")
+            Image("\(bmiCategory == "Normal" ? "normalTranslucent" : "overUnderTranslucent")")
                 .resizable()
                 .scaledToFit()
                 .offset(y: 150)
@@ -76,8 +78,8 @@ struct BMIResultView: View {
                         .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                         .shadow(color: .black, radius: 12, x: 3, y: 5)
                 }
-                .padding()
-                .padding(.bottom, 30)
+//                .padding()
+//                .padding(.bottom, 30)
                 //                .frame(height: 100)
                 
                 
@@ -91,6 +93,6 @@ struct BMIResultView: View {
 
 struct BMIResultView_Previews: PreviewProvider {
     static var previews: some View {
-        BMIResultView(bmi: 22.5, bmiCategory: "Underweight")
+        BMIResultView(genderSelected: .constant(true), bmi: 22.5, bmiCategory: "Underweight")
     }
 }
