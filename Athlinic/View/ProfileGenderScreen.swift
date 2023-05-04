@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ProfileGenderScreen: View {
-    @State private var userName = ""
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @State var isMaleSelected = true
     @State private var isTriangleButtonPressed = false
     
@@ -77,7 +79,9 @@ struct ProfileGenderScreen: View {
                 
                 
                 VStack {
-                    NavigationLink(destination: ProfileMeasurement(genderSelected: $isMaleSelected)) {
+                    NavigationLink(destination: ProfileMeasurement(genderSelected: $isMaleSelected)
+                        .onAppear{self.addGender(gender: isMaleSelected)}
+                    ) {
                         Text("NEXT")
                             .font(.system(size: 24, weight: .semibold))
                             .frame(width: 180, height: 52)
@@ -94,6 +98,21 @@ struct ProfileGenderScreen: View {
 //                .frame(height: 100)
             }
         }
+    }
+    
+    private func addGender(gender: Bool) -> String? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                profile.gender = gender
+                try viewContext.save()
+            }
+        }   catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        return nil
     }
 }
 

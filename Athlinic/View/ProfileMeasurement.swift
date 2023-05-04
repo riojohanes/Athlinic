@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ProfileMeasurement: View {
+    @Environment(\.managedObjectContext) private var viewContext
     
 //    @State private var genderSelected = false
     @State private var userHeight = ""
@@ -41,9 +43,8 @@ struct ProfileMeasurement: View {
                 .resizable()
                 .scaledToFit()
             
-
-            
             VStack {
+                
                 Text("What's your measurements?")
                     .font(.system(size: 28, weight: .light))
                     .foregroundColor(.white)
@@ -94,7 +95,9 @@ struct ProfileMeasurement: View {
                 
                 
                 
-                NavigationLink(destination: BMIResultView(genderSelected: $genderSelected, bmi: bmi, bmiCategory: bmiCategory)) {
+                NavigationLink(destination: BMIResultView(genderSelected: $genderSelected, bmi: bmi, bmiCategory: bmiCategory)
+                    .onAppear{self.addMeasurement(height: userHeight, weight: userWeight)}
+                ) {
                     Text("NEXT")
                         .font(.system(size: 24, weight: .semibold))
                         .frame(width: 180, height: 52)
@@ -110,30 +113,59 @@ struct ProfileMeasurement: View {
         }
     }
     
-    var bmi: Double {
-            let height = Double(userHeight) ?? 0
-            let weight = Double(userWeight) ?? 0
-            guard height > 0 && weight > 0 else {
-                return 0
+//    private func getGender() -> Bool? {
+//        let fetchRequest =
+//            NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+//        fetchRequest.fetchLimit = 1
+//        do {
+//            let result = try viewContext.fetch(fetchRequest)
+//            if let profile = result.first as? Profile {
+//                return profile.gender
+//            }
+//        } catch let error as NSError {
+//            print("Could not fetch. \(error), \(error.userInfo)")
+//        }
+//        return nil
+//    }
+    
+    private func addMeasurement(height: String, weight: String) {
+        let fetchRequest =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        let d_height = Double(height) ?? 0.0
+        let d_weight = Double(weight) ?? 0.0
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                profile.current_height = d_height
+                profile.current_weight = d_weight
+                try viewContext.save()
             }
-            return weight / (height * height)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
+    }
+    
+    var bmi: Double {
+        let height = Double(userHeight) ?? 0
+        let weight = Double(userWeight) ?? 0
+        guard height > 0 && weight > 0 else {
+            return 0
+        }
+        return weight / (height * height)
+    }
     
     var bmiCategory: String {
-            switch bmi {
-            case ..<18.5:
-                return "Underweight"
-            case 18.5..<25:
-                return "Normal"
-            default:
-                return "Overweight"
-            }
+        switch bmi {
+        case ..<18.5:
+            return "Underweight"
+        case 18.5..<25:
+            return "Normal"
+        default:
+            return "Overweight"
         }
-    
+    }
 }
-
-
-
 
 struct ProfileMeasurement_Previews: PreviewProvider {
     static var previews: some View {
