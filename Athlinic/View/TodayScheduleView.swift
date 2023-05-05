@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct TodayScheduleView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     
     @State var selection = 0
     @State var agreeToTerms = false
@@ -31,8 +33,7 @@ struct TodayScheduleView: View {
                     VStack{
                         HStack{
                             Spacer()
-                            
-                            Text("JHON DOE")
+                            Text("\(getName() ?? "Unkown")!")
                                 .foregroundColor(.white)
                                 .font(.system(size: 24))
                             
@@ -124,6 +125,21 @@ struct TodayScheduleView: View {
             
             MainNavigationComponent()
         } // End Z Stack
+    }
+    
+    private func getName() -> String? {
+        let fetchRequest =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                return profile.name
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
     }
 }
 

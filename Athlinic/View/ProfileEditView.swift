@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ProfileEditView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     
     @State private var isUpdatingProfile = true
-    @State private var profHeight = "180"
-    @State private var profWeight = "75"
+    @State private var profHeight: String = ""
+    @State private var profWeight: String = ""
     
     var body: some View {
         ZStack{
@@ -24,7 +26,7 @@ struct ProfileEditView: View {
             ZStack{
                 VStack{
                     HStack(alignment: .center){
-                        Text("JHON DOE")
+                        Text("\(getName() ?? "Unkown")!")
                             .foregroundColor(.white)
                             .font(.system(size: 24, weight: .light))
 
@@ -52,7 +54,7 @@ struct ProfileEditView: View {
                                     Text("GENDER")
                                         .font(.system(size: 21, weight: .medium))
                                         .foregroundColor(.white)
-                                    Text("Male")
+                                    Text("\(showGender())")
                                         .font(.system(size: 49, weight: .semibold))
                                         .foregroundColor(.white)
                                 }
@@ -61,10 +63,11 @@ struct ProfileEditView: View {
                                 Spacer()
                                 VStack(alignment: .leading) {
                                     //                                Spacer()
-                                    Text("WEIGHT/HEIGHT")
+                                    Text("WEIGHT / HEIGHT")
                                         .font(.system(size: 21, weight: .medium))
                                     //                                Spacer()
-                                    Text("75/180")
+                                    Text(String(format: "%.2f", getWeight() ?? 2.0) + " / " + String(format: "%.2f", getHeight() ?? 1.0))
+
                                         .font(.system(size: 60, weight: .semibold))
                                     //                                Spacer()
                                 }
@@ -92,6 +95,7 @@ struct ProfileEditView: View {
                                 HStack {
                                     if #available(iOS 15.0, *) {
                                         Button("DONE") {
+                                            editMeasurement(height: profHeight, weight: profWeight)
                                             isUpdatingProfile.toggle()
                                         }
                                         .font(.system(size: 21, weight: .light))
@@ -119,6 +123,10 @@ struct ProfileEditView: View {
                                         .font(.system(size: 22, weight: .medium))
                                     
                                     TextField("Your Weight", text: $profWeight)
+                                        .keyboardType(.decimalPad)
+                                        .onAppear{
+                                            profWeight = "\(getWeight()!)"
+                                        }
                                         .foregroundColor(.white)
                                         .padding(12)
                                         .font(.system(size: 22, weight: .semibold))
@@ -135,6 +143,10 @@ struct ProfileEditView: View {
                                         .font(.system(size: 22, weight: .medium))
                                     
                                     TextField("Your Height", text: $profHeight)
+                                        .keyboardType(.decimalPad)
+                                        .onAppear{
+                                            profHeight = "\(getHeight()!)"
+                                        }
                                         .foregroundColor(.white)
                                         .padding(12)
                                         .font(.system(size: 22, weight: .semibold))
@@ -159,6 +171,90 @@ struct ProfileEditView: View {
             
             MainNavigationComponent()
         }
+    }
+    private func getName() -> String? {
+        let fetchRequest =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                return profile.name
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
+    }
+    
+    private func getGender() -> Bool? {
+        let fetchRequest =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                return profile.gender
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
+    }
+    
+    private func showGender() -> String {
+        if getGender()! {
+            return "Male"
+        } else {
+            return "Female"
+        }
+    }
+    
+    private func getHeight() -> Double? {
+        let fetchRequest =
+        NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                return profile.current_height
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
+    }
+    
+    private func editMeasurement(height: String, weight: String) {
+        let fetchRequest: NSFetchRequest<Profile> = Profile.fetchRequest()
+        fetchRequest.fetchLimit = 1
+        let d_height = Double(height)
+        let d_weight = Double(weight)
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first {
+                profile.current_height = d_height ?? profile.current_height
+                profile.current_weight = d_weight ?? profile.current_weight
+                try viewContext.save()
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    private func getWeight() -> Double? {
+        let fetchRequest =
+        NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                return profile.current_weight
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
     }
 }
 
