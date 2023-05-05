@@ -1,23 +1,14 @@
 //
-//  TodayScheduleView.swift
+//  ExcerciseDetailView.swift
 //  Athlinic
 //
-//  Created by Rajif Afif on 03/05/23.
+//  Created by Rajif Afif on 05/05/23.
 //
 
 import SwiftUI
 
-struct TodayScheduleView: View {
-    
-    @State var selection = 0
-    @State var agreeToTerms = false
-    @State var name = "Nama Saya"
-    
-    let activities: [Activity.Struct] = [
-        Activity.Struct(excerciseName: "Bench Press", set: 5, rep: "12, 10, 8, 6, 12", rest: "60"),
-        Activity.Struct(excerciseName: "Incline Dumble Press", set: 4, rep: "12, 10, 8, 6", rest: "45-60"),
-        Activity.Struct(excerciseName: "Decline Barbell Bench Press", set: 5, rep: "10, 10, 10, 10", rest: "45-60")
-    ]
+struct ExcerciseDetailView: View {
+    @State var name: String = "Name"
     
     var body: some View {
         ZStack{
@@ -31,12 +22,6 @@ struct TodayScheduleView: View {
                 ZStack{
                     VStack{
                         ProfileButtonComponent(name: $name)
-                        
-                        Image("maleHomeDisplay")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 380)
-                            .offset(x: 50)
                         Spacer()
                     }
                     
@@ -87,9 +72,9 @@ struct TodayScheduleView: View {
                                     VStack {
                                         // Cards
                                         VStack{
-                                            ForEach(activities, id: \.self) { activity in
-                                                ActivityCardComponent(activity: activity)
-                                            }
+//                                            ForEach(activities, id: \.self) { activity in
+//                                                ActivityCardView(activity: activity, isChecked: false)
+//                                            }
                                         }
                                         .offset(y: 6)
                                         .padding()
@@ -113,69 +98,8 @@ struct TodayScheduleView: View {
     }
 }
 
-struct TodayScheduleView_Previews: PreviewProvider {
+struct ExcerciseDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TodayScheduleView()
+        ExcerciseDetailView()
     }
-}
-
-struct ActivityCardView: View {
-    let activity: Activity.Struct
-    @State var isChecked: Bool
-    
-    var body: some View {
-        HStack(spacing: 15) {
-            ZStack{
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            gradient: Gradient(colors: [ColorPalette.iconGradientEnd, ColorPalette.iconGradientStart]),
-                            center: .center,
-                            startRadius: 50,
-                            endRadius: 0
-                        )
-                    )
-                Image("menuIconEquipment")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-            }
-            .frame(width: 55)
-//            Image("menuIconProfile")
-//                .resizable()
-//                .scaledToFill()
-//                .frame(width: 70)
-//                .clipped()
-            
-            VStack(alignment: .leading) {
-                Text(activity.excerciseName)
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .font(.system(size: 20))
-                
-                HStack{
-                    VStack(alignment: .leading){
-                        Text("\(activity.set) set (\(String(activity.rep)) rep")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                        
-                        Text("\(activity.rest)s rest")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                            
-                    }
-                    Spacer()
-                    ActivityCheckbox(isChecked: $isChecked)
-                        .offset(y: -9)
-                }
-            }
-
-            
-        }
-        .padding(10)
-        .background(ColorPalette.cardBackground)
-        .cornerRadius(20)
-        .shadow(radius: 5)
-    }
-    
 }
