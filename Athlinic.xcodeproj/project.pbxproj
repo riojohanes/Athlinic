@@ -22,6 +22,7 @@
 		6593B53F2A04C27B00887B1A /* Activity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6593B53D2A04C27B00887B1A /* Activity+CoreDataClass.swift */; };
 		6593B5402A04C27B00887B1A /* Activity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6593B53E2A04C27B00887B1A /* Activity+CoreDataProperties.swift */; };
 		6593B5422A04C41100887B1A /* ActivityCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6593B5412A04C41100887B1A /* ActivityCardComponent.swift */; };
+		65AC436D2A04D6C400DA01A6 /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC436C2A04D6C400DA01A6 /* GifView.swift */; };
 		65AD2E722A023BBF00DF17D8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E712A023BBE00DF17D8 /* Color.swift */; };
 		65AD2E742A02625A00DF17D8 /* ActivityCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */; };
 		65AD2E762A03719300DF17D8 /* CardBackgroundComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD2E752A03719300DF17D8 /* CardBackgroundComponent.swift */; };
@@ -54,6 +55,7 @@
 		6593B53D2A04C27B00887B1A /* Activity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6593B53E2A04C27B00887B1A /* Activity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6593B5412A04C41100887B1A /* ActivityCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardComponent.swift; sourceTree = "<group>"; };
+		65AC436C2A04D6C400DA01A6 /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
 		65AD2E712A023BBE00DF17D8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		65AD2E732A02625A00DF17D8 /* ActivityCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCheckbox.swift; sourceTree = "<group>"; };
 		65AD2E752A03719300DF17D8 /* CardBackgroundComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackgroundComponent.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				65AD2E752A03719300DF17D8 /* CardBackgroundComponent.swift */,
 				6593B5372A04BE4900887B1A /* ProfileButtonComponent.swift */,
 				6593B5412A04C41100887B1A /* ActivityCardComponent.swift */,
+				65AC436C2A04D6C400DA01A6 /* GifView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				F916068B29FBAD2C003DA196 /* ProfileMeasurement.swift in Sources */,
 				6593B53B2A04C21700887B1A /* Excercise+CoreDataClass.swift in Sources */,
 				6593B53F2A04C27B00887B1A /* Activity+CoreDataClass.swift in Sources */,
+				65AC436D2A04D6C400DA01A6 /* GifView.swift in Sources */,
 				2FA54A9E29E90E9F00C436C1 /* AthlinicApp.swift in Sources */,
 				F991F5482A03EAA900DDBCD4 /* ProfileAchievementView.swift in Sources */,
 				6593B53C2A04C21700887B1A /* Excercise+CoreDataProperties.swift in Sources */,
