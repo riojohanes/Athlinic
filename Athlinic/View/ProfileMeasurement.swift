@@ -152,7 +152,7 @@ struct ProfileMeasurement: View {
         guard height > 0 && weight > 0 else {
             return 0
         }
-        return weight / (height * height)
+        return weight / (height/100 * height/100)
     }
     
     var bmiCategory: String {

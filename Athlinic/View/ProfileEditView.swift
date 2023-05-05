@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileEditView: View {
     
-    @State private var isUpdatingProfile = false
+    @State private var isUpdatingProfile = true
     @State private var profHeight = "180"
     @State private var profWeight = "75"
     

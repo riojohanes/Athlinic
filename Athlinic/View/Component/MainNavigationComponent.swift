@@ -66,6 +66,7 @@ struct MainNavigationComponent: View {
                 }
             }
         }
+        .offset(y: 15)
     }
 }
 

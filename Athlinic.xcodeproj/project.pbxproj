@@ -25,6 +25,7 @@
 		F916068D29FCFDD3003DA196 /* BMIResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F916068C29FCFDD3003DA196 /* BMIResultView.swift */; };
 		F991F5462A03A1BF00DDBCD4 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F991F5452A03A1BF00DDBCD4 /* ProfileEditView.swift */; };
 		F991F5482A03EAA900DDBCD4 /* ProfileAchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F991F5472A03EAA900DDBCD4 /* ProfileAchievementView.swift */; };
+		F991F54A2A04B64A00DDBCD4 /* CompleteProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F991F5492A04B64A00DDBCD4 /* CompleteProgramView.swift */; };
 		F996E41F29FA860A008FE6F4 /* ProfileNameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */; };
 		F996E42129FA9A39008FE6F4 /* ProfileGenderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F996E42029FA9A39008FE6F4 /* ProfileGenderScreen.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		F916068C29FCFDD3003DA196 /* BMIResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIResultView.swift; sourceTree = "<group>"; };
 		F991F5452A03A1BF00DDBCD4 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		F991F5472A03EAA900DDBCD4 /* ProfileAchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAchievementView.swift; sourceTree = "<group>"; };
+		F991F5492A04B64A00DDBCD4 /* CompleteProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteProgramView.swift; sourceTree = "<group>"; };
 		F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameScreen.swift; sourceTree = "<group>"; };
 		F996E42029FA9A39008FE6F4 /* ProfileGenderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGenderScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 				65AD2E712A023BBE00DF17D8 /* Color.swift */,
 				F991F5452A03A1BF00DDBCD4 /* ProfileEditView.swift */,
 				F991F5472A03EAA900DDBCD4 /* ProfileAchievementView.swift */,
+				F991F5492A04B64A00DDBCD4 /* CompleteProgramView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				65FB21DD2A0226D100464A66 /* MainNavigationComponent.swift in Sources */,
 				65AD2E742A02625A00DF17D8 /* ActivityCheckbox.swift in Sources */,
 				65FB21DA2A02013B00464A66 /* TodayScheduleView.swift in Sources */,
+				F991F54A2A04B64A00DDBCD4 /* CompleteProgramView.swift in Sources */,
 				2FA54AAA29E90EA000C436C1 /* Athlinic.xcdatamodeld in Sources */,
 				F996E42129FA9A39008FE6F4 /* ProfileGenderScreen.swift in Sources */,
 				65AD2E722A023BBF00DF17D8 /* Color.swift in Sources */,
@@ -363,7 +367,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,7 +397,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

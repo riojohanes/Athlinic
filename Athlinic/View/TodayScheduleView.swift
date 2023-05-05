@@ -31,13 +31,18 @@ struct TodayScheduleView: View {
                     VStack{
                         HStack{
                             Spacer()
+                            
                             Text("JHON DOE")
                                 .foregroundColor(.white)
                                 .font(.system(size: 24))
-                            Image("menuIconProfile")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 40)
+                            
+                            NavigationLink(destination: ProfileEditView()) {
+                                Image("menuIconProfile")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 40)
+                            }
+                            
                         }
                         .padding(.horizontal)
                         
@@ -67,32 +72,49 @@ struct TodayScheduleView: View {
                         
                         Spacer()
                             .frame(height: 100)
-                        Text("Today's Quest")
-                            .foregroundColor(.white)
-                            .font(.system(size: 30, weight: .semibold))
-                        
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        ZStack {
-                            CardBackgroundComponent()
-                            
-                            // The Content
-                            ScrollView{
-                                VStack {
-                                    // Cards
-                                    VStack{
-                                        ForEach(activities, id: \.self) { activity in
-                                            ActivityCardView(activity: activity, isChecked: false)
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("Today's Quest")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 30, weight: .semibold))
+                                
+                                NavigationLink(destination: ProfileEditView() /* Your destination view */) {
+                                            HStack {
+                                                Image(systemName: "chevron.right")
+                                                    .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 11)
+                                                        .font(.system(size: 24))
+                                                    .foregroundColor(.white)
+                                                
+                                            }
+                                            .padding(.horizontal, 5)
                                         }
-                                    }
-                                    .offset(y: 6)
-                                    .padding()
-                                }
+                                .frame(alignment: .leading)
                             }
-                            .clipShape(RoundedRectangle(cornerRadius: 34))
+                            
+                            ZStack {
+                                CardBackgroundComponent()
+                                
+                                // The Content
+                                ScrollView{
+                                    VStack {
+                                        // Cards
+                                        VStack{
+                                            ForEach(activities, id: \.self) { activity in
+                                                ActivityCardView(activity: activity, isChecked: false)
+                                            }
+                                        }
+                                        .offset(y: 6)
+                                        .padding()
+                                    }
+                                }
+                                .clipShape(RoundedRectangle(cornerRadius: 34))
+                            }
+                            .frame(height: 290)
+                            .clipped()
                         }
-                        .frame(height: 290)
-                        .clipped()
+                        .offset(y: 5)
                         
                         Spacer()
                     }
