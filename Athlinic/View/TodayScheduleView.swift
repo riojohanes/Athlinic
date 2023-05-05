@@ -28,7 +28,7 @@ struct TodayScheduleView: View {
 //            ScrollView{
                 ZStack{
                     VStack{
-                        ProfileButtonComponent(name: $name)
+                        ProfileButtonComponent()
                         
                         Image("maleHomeDisplay")
                             .resizable()

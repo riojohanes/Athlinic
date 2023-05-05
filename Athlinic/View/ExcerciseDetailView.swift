@@ -19,7 +19,7 @@ struct ExcerciseDetailView: View {
             .ignoresSafeArea(.all)
                 
                     VStack{
-                        ProfileButtonComponent(name: $name)
+                        ProfileButtonComponent()
                         
                         VStack(alignment: .leading) {
                             ZStack {

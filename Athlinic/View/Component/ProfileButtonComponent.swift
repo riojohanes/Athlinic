@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ProfileButtonComponent: View {
-    @Binding var name: String
+    @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
         HStack{
             Spacer()
             
-            Text("\(name)")
+            Text("\(getName()!)")
                 .foregroundColor(.white)
                 .font(.system(size: 24))
             
@@ -28,10 +29,25 @@ struct ProfileButtonComponent: View {
         }
         .padding(.horizontal)
     }
+    
+    private func getName() -> String? {
+        let fetchRequest =
+            NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        fetchRequest.fetchLimit = 1
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            if let profile = result.first as? Profile {
+                return profile.name
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
+    }
 }
 
 struct ProfileButtonComponent_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileButtonComponent(name: .constant("DefaultNama"))
+        ProfileButtonComponent()
     }
 }
