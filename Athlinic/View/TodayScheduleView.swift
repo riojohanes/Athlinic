@@ -13,12 +13,9 @@ struct TodayScheduleView: View {
     
     @State var selection = 0
     @State var agreeToTerms = false
+    @State var name = "Nama Saya"
     
-    let activities: [Activity] = [
-        Activity(excerciseName: "Bench Press", set: 5, rep: "12, 10, 8, 6, 12", rest: "60"),
-        Activity(excerciseName: "Incline Dumble Press", set: 4, rep: "12, 10, 8, 6", rest: "45-60"),
-        Activity(excerciseName: "Decline Barbell Bench Press", set: 5, rep: "10, 10, 10, 10", rest: "45-60")
-    ]
+    @State var activities: [Activity.Struct] = []
     
     var body: some View {
         ZStack{
@@ -31,21 +28,7 @@ struct TodayScheduleView: View {
 //            ScrollView{
                 ZStack{
                     VStack{
-                        HStack{
-                            Spacer()
-                            Text("\(getName() ?? "Unkown")!")
-                                .foregroundColor(.white)
-                                .font(.system(size: 24))
-                            
-                            NavigationLink(destination: ProfileEditView()) {
-                                Image("menuIconProfile")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 40)
-                            }
-                            
-                        }
-                        .padding(.horizontal)
+                        ProfileButtonComponent(name: $name)
                         
                         Image("maleHomeDisplay")
                             .resizable()
@@ -79,7 +62,7 @@ struct TodayScheduleView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 30, weight: .semibold))
                                 
-                                NavigationLink(destination: ProfileEditView() /* Your destination view */) {
+                                NavigationLink(destination: CompleteProgramView() /* Your destination view */) {
                                             HStack {
                                                 Image(systemName: "chevron.right")
                                                     .resizable()
@@ -91,6 +74,8 @@ struct TodayScheduleView: View {
                                             }
                                             .padding(.horizontal, 5)
                                         }
+                                .navigationBarBackButtonHidden(true)
+
                                 .frame(alignment: .leading)
                             }
                             
@@ -103,11 +88,19 @@ struct TodayScheduleView: View {
                                         // Cards
                                         VStack{
                                             ForEach(activities, id: \.self) { activity in
-                                                ActivityCardView(activity: activity, isChecked: false)
+                                                ActivityCardComponent(activity: activity)
                                             }
                                         }
                                         .offset(y: 6)
                                         .padding()
+                                    }
+                                    .onAppear{
+                                        // Fill Data
+                                        activities = [
+                                                Activity.Struct(excerciseName: "Bench Press", set: 5, rep: "12, 10, 8, 6, 12", rest: "60"),
+                                                Activity.Struct(excerciseName: "Incline Dumble Press", set: 4, rep: "12, 10, 8, 6", rest: "45-60"),
+                                                Activity.Struct(excerciseName: "Decline Barbell Bench Press", set: 5, rep: "10, 10, 10, 10", rest: "45-60")
+                                        ]
                                     }
                                 }
                                 .clipShape(RoundedRectangle(cornerRadius: 34))
@@ -125,6 +118,7 @@ struct TodayScheduleView: View {
             
             MainNavigationComponent()
         } // End Z Stack
+        
     }
     
     private func getName() -> String? {
@@ -149,19 +143,8 @@ struct TodayScheduleView_Previews: PreviewProvider {
     }
 }
 
-
-
-// ------------------------------ Card ------------------------------------
-struct Activity: Identifiable, Hashable {
-    var id = UUID()
-    var excerciseName: String
-    var set: Int
-    var rep: String
-    var rest: String
-}
-
 struct ActivityCardView: View {
-    let activity: Activity
+    let activity: Activity.Struct
     @State var isChecked: Bool
     
     var body: some View {

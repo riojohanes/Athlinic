@@ -167,6 +167,7 @@ struct ProfileEditView: View {
                 }
                 .padding(.horizontal, 20)
             }
+            .navigationBarBackButtonHidden(true)
             //            } // End ScrollView
             
             MainNavigationComponent()

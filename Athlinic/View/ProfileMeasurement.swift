@@ -59,8 +59,8 @@ struct ProfileMeasurement: View {
                             .font(.system(size: 28, weight: .light))
                             .foregroundColor(.white)
                             .padding(.bottom, -2)
-                        TextField("Height (m)", text: $userHeight)
-                            .keyboardType(.decimalPad)
+                        TextField("Height (cm)", text: $userHeight)
+                            .keyboardType(.numberPad)
                             .foregroundColor(.black)
                             .font(.system(size: 28, design: .default))
                             .frame(width: 273)
@@ -108,6 +108,8 @@ struct ProfileMeasurement: View {
                         .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                         .shadow(color: .black, radius: 12, x: 3, y: 5)
                 }
+                .navigationBarBackButtonHidden(true)
+
 //                .padding(.bottom, 30)
             }
         }

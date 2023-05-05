@@ -33,6 +33,7 @@ class ColorPalette {
     static let updateButton = Color(UIColor(hex: "#FFB706") ?? .clear)
     static let doneButton = Color(UIColor(hex: "#06FF14") ?? .clear)
     
+    static let bgGray = Color(UIColor(hex: "#3E4143") ?? .clear)
     
     
 
