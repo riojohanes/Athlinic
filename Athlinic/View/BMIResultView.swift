@@ -84,6 +84,7 @@ struct BMIResultView: View {
                         .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                         .shadow(color: .black, radius: 12, x: 3, y: 5)
                 }
+                .navigationBarBackButtonHidden(true)
 //                .padding()
 //                .padding(.bottom, 30)
                 //                .frame(height: 100)

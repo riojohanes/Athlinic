@@ -142,10 +142,10 @@
 				F916068A29FBAD2C003DA196 /* ProfileMeasurement.swift */,
 				F916068C29FCFDD3003DA196 /* BMIResultView.swift */,
 				65FB21D92A02013B00464A66 /* TodayScheduleView.swift */,
+				F991F5492A04B64A00DDBCD4 /* CompleteProgramView.swift */,
 				65AD2E712A023BBE00DF17D8 /* Color.swift */,
 				F991F5452A03A1BF00DDBCD4 /* ProfileEditView.swift */,
 				F991F5472A03EAA900DDBCD4 /* ProfileAchievementView.swift */,
-				F991F5492A04B64A00DDBCD4 /* CompleteProgramView.swift */,
 				65AD2E872A04B9B700DF17D8 /* ExcerciseDetailView.swift */,
 			);
 			path = View;

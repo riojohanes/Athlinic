@@ -92,6 +92,7 @@ struct ProfileNameScreen: View {
                             .shadow(color: Color("tintShadowButton"), radius: 10, x: -3, y: -5)
                             .shadow(color: .black, radius: 12, x: 3, y: 5)
                     }
+                    .navigationBarBackButtonHidden(true)
                     .alert(isPresented: $showingAlert) {
                         Alert(
                             title: Text("Username is required"),

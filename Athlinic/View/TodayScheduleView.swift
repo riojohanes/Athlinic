@@ -64,7 +64,7 @@ struct TodayScheduleView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 30, weight: .semibold))
                                 
-                                NavigationLink(destination: ProfileEditView() /* Your destination view */) {
+                                NavigationLink(destination: CompleteProgramView() /* Your destination view */) {
                                             HStack {
                                                 Image(systemName: "chevron.right")
                                                     .resizable()
@@ -76,6 +76,8 @@ struct TodayScheduleView: View {
                                             }
                                             .padding(.horizontal, 5)
                                         }
+                                .navigationBarBackButtonHidden(true)
+
                                 .frame(alignment: .leading)
                             }
                             
