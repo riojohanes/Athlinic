@@ -15,6 +15,8 @@ struct TodayScheduleView: View {
     @State var agreeToTerms = false
     @State var name = "Nama Saya"
     
+    @Binding var bmiCategory: String
+    
     @State var activities: [Activity.Struct] = []
     
     var body: some View {
@@ -46,7 +48,7 @@ struct TodayScheduleView: View {
                             Text("You're")
                                 .foregroundColor(.white)
                                 .font(.system(size: 28))
-                            Text("Overweight")
+                            Text("\(bmiCategory)")
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
                                 .font(.system(size: 28))
@@ -62,7 +64,7 @@ struct TodayScheduleView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 30, weight: .semibold))
                                 
-                                NavigationLink(destination: CompleteProgramView() /* Your destination view */) {
+                                NavigationLink(destination: CompleteProgramView(bmiCategory: $bmiCategory) /* Your destination view */) {
                                             HStack {
                                                 Image(systemName: "chevron.right")
                                                     .resizable()
@@ -140,7 +142,7 @@ struct TodayScheduleView: View {
 
 struct TodayScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        TodayScheduleView()
+        TodayScheduleView(bmiCategory: .constant("overweighted"))
     }
 }
 

@@ -14,6 +14,9 @@ struct CompleteProgramView: View {
         //        ,
         //        Activity.Struct(excerciseName: "Decline Barbell Bench Press", set: 5, rep: "10, 10, 10, 10", rest: "45-60")
     ]
+    
+    @Binding var bmiCategory: String
+    
     var body: some View {
         ZStack{
             LinearGradient(
@@ -57,7 +60,7 @@ struct CompleteProgramView: View {
                             CardBackgroundComponent()
                             VStack {
                                 HStack {
-                                    NavigationLink(destination: TodayScheduleView()) {
+                                    NavigationLink(destination: TodayScheduleView(bmiCategory: $bmiCategory)) {
                                         Image(systemName: "chevron.left")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
@@ -143,34 +146,20 @@ struct CompleteProgramView: View {
                                                 .offset(y: 5)
                                             //                                                .padding()
                                         }
-                                        
-                                        
-                                        
-                                        
-                                        
                                     }
                                 }
                             }
-                            
-                            
-                            
-                            
-                            
-                            
                         }
                         .frame(height: 590)
                         .clipped()
                     }
-                    
                     .offset(y: 5)
-                    
                     Spacer()
                         .frame(height: 100)
                 }
                 .padding(.horizontal)
             }
             //            } // End ScrollView
-            
             MainNavigationComponent()
         } // End Z Stack
     }
@@ -178,6 +167,6 @@ struct CompleteProgramView: View {
 
 struct CompleteProgramView_Previews: PreviewProvider {
     static var previews: some View {
-        CompleteProgramView()
+        CompleteProgramView(bmiCategory: .constant("Underweight"))
     }
 }

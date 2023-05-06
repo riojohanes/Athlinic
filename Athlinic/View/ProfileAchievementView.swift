@@ -12,6 +12,7 @@ struct ProfileAchievementView: View {
     @State var name = "Nama Saya"
     @State private var isAchievementClicked = false
     @State private var isTrophyClicked = false
+    @Binding var bmiCategory: String
 
     var body: some View {
         ZStack{
@@ -58,7 +59,7 @@ struct ProfileAchievementView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 30, weight: .semibold))
                                 
-                                NavigationLink(destination: CompleteProgramView() /* Your destination view */) {
+                                NavigationLink(destination: CompleteProgramView(bmiCategory: $bmiCategory)) /* Your destination view */ {
                                             HStack {
                                                 Image(systemName: "chevron.right")
                                                     .resizable()
@@ -105,6 +106,6 @@ struct ProfileAchievementView: View {
 
 struct ProfileAchievementView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileAchievementView()
+        ProfileAchievementView(bmiCategory: .constant("underweight"))
     }
 }

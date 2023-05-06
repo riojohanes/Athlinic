@@ -24,7 +24,7 @@ struct ContentView: View {
         if (isFirstTime) {
             Landing_Page_view()
         } else {
-            TodayScheduleView()
+            TodayScheduleView(bmiCategory: .constant("underweight"))
         }
         //        NavigationView {
         //            List {
