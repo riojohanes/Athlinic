@@ -14,7 +14,7 @@ struct BMIResultView: View {
     @Binding var genderSelected: Bool
 
     var bmi: Double
-    var bmiCategory: String
+    @State var bmiCategory: String
         
     var body: some View {
         ZStack{

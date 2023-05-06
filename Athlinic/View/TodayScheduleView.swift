@@ -55,7 +55,7 @@ struct TodayScheduleView: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         
                         Spacer()
-                            .frame(height: 100)
+//                            .frame(height: 100)
                         VStack(alignment: .leading) {
                             HStack {
                                 Text("Today's Quest")
@@ -111,6 +111,7 @@ struct TodayScheduleView: View {
                         .offset(y: 5)
                         
                         Spacer()
+                            .frame(height: 100)
                     }
                     .padding(.horizontal)
                 }
@@ -203,3 +204,4 @@ struct ActivityCardView: View {
     }
     
 }
+

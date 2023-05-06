@@ -67,6 +67,7 @@ struct ProfileNameScreen: View {
                     
                     
                     TextField("Your Name", text: $name)
+                        .keyboardType(.default)
                         .foregroundColor(.white)
                         .font(.system(size: 30, design: .default))
                         .frame(width: 273)

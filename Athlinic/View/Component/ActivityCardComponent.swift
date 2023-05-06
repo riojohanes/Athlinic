@@ -64,6 +64,6 @@ struct ActivityCardComponent: View {
 
 struct ActivityCardComponent_Previews: PreviewProvider {
     static var previews: some View {
-        TodayScheduleView()
+        ActivityCardComponent(activity: Activity.Struct(excerciseName: "Bench Press", set: 5, rep: "12, 10, 8, 6, 12", rest: "60"))
     }
 }

@@ -165,6 +165,7 @@ struct CompleteProgramView: View {
                     .offset(y: 5)
                     
                     Spacer()
+                        .frame(height: 100)
                 }
                 .padding(.horizontal)
             }
