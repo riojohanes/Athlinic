@@ -14,6 +14,14 @@ struct ProfileAchievementView: View {
     @State private var isTrophyClicked = false
     @Binding var bmiCategory: String
 
+    let columns = [
+        // flexible 4 columns
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         ZStack{
             LinearGradient(
@@ -43,7 +51,7 @@ struct ProfileAchievementView: View {
                             Text("You're")
                                 .foregroundColor(.white)
                                 .font(.system(size: 28))
-                            Text("Overweight")
+                            Text("\(bmiCategory)")
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
                                 .font(.system(size: 28))
@@ -59,7 +67,7 @@ struct ProfileAchievementView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 30, weight: .semibold))
                                 
-                                NavigationLink(destination: CompleteProgramView(bmiCategory: $bmiCategory)) /* Your destination view */ {
+//                                NavigationLink(destination: /* Your destination view */ ){
                                             HStack {
                                                 Image(systemName: "chevron.right")
                                                     .resizable()
@@ -70,25 +78,48 @@ struct ProfileAchievementView: View {
                                                 
                                             }
                                             .padding(.horizontal, 5)
-                                        }
-                                .navigationBarBackButtonHidden(true)
-
-                                .frame(alignment: .leading)
+//                                        }
+//                                .navigationBarBackButtonHidden(true)
+//                                .frame(alignment: .leading)
                             }
                             .padding(.horizontal)
                             
                             if isAchievementClicked {
-                                
+                                ZStack {
+                                    CardBackgroundComponent()
+                                    
+                                    VStack {
+                                            AchievementComponent()
+                                            .padding()
+                                    }
+                                    // The Content
+                                }
+                                .frame(height: 290)
+                                .clipped()
                             }
+                            
                             ZStack {
                                 CardBackgroundComponent()
                                 
                                 VStack {
-                                        AchievementComponent()
+                                    ScrollView {
+                                        //                                        AchievementComponent()
+                                        LazyVGrid(columns: columns, spacing: 10) {
+                                            ForEach(achievements, id: \.name) { achievement in
+                                                //                                            NavigationLink(destination: AchievementDetail(achievement: achievement)) {
+                                                Image(achievement.imageName)
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width: 80)
+                                                //                                            }
+                                            }
+                                        }
+                                    }
+
                                         .padding()
                                 }
                                 // The Content
-                                                            }
+                            }
                             .frame(height: 290)
                             .clipped()
                         }
@@ -106,6 +137,8 @@ struct ProfileAchievementView: View {
 
 struct ProfileAchievementView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileAchievementView(bmiCategory: .constant("underweight"))
+//        ProfileAchievementView(bmiCategory: .constant("underweight"))
+        ProfileAchievementView(bmiCategory: .constant("Normal"))
+
     }
 }
