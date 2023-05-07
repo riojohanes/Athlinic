@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ActivityCardComponent: View {
     let activity: Activity.Struct
-//    @State var isChecked: Bool
+    @State var isChecked: Bool = false
     
     var body: some View {
         HStack(spacing: 15) {
@@ -51,8 +51,27 @@ struct ActivityCardComponent: View {
 //                    ActivityCheckbox(isChecked: $isChecked)
 //                        .offset(y: -9)
                 }
+                
             }
+            
+            if (isChecked) {
+                Image("Checked")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30)
+                    .padding()
 
+            } else {
+                Image("Unchecked")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30)
+                    .padding()
+                    .onTapGesture {
+                        isChecked = true
+                    }
+
+            }
             
         }
         .padding(10)
