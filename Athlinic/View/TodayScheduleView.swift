@@ -11,6 +11,7 @@ import CoreData
 struct TodayScheduleView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
+    @State private var opacity = 0.0
     @State var selection = 0
     @State var agreeToTerms = false
     @State var name = "Nama Saya"
@@ -110,6 +111,7 @@ struct TodayScheduleView: View {
                             .frame(height: 290)
                             .clipped()
                         }
+                        .opacity(opacity)
                         .offset(y: 5)
                         
                         Spacer()
@@ -119,8 +121,18 @@ struct TodayScheduleView: View {
                 }
 //            } // End ScrollView
             
-            MainNavigationComponent()
+//            MainNavigationComponent()
         } // End Z Stack
+        .onAppear{
+            withAnimation {
+                opacity = 1
+            }
+        }
+        .onDisappear{
+            withAnimation {
+                opacity = 0
+            }
+        }
         
     }
     

@@ -198,7 +198,7 @@ struct ExcerciseDetailView: View {
                     }
                     .padding(.horizontal)
             
-            MainNavigationComponent()
+//            MainNavigationComponent()
         } // End Z Stack
     }
 }

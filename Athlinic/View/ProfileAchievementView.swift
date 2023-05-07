@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileAchievementView: View {
     
+    @State private var opacity = 0.0
     @State var name = "Nama Saya"
     @State private var isAchievementClicked = true
     @State private var isTrophyClicked = false
@@ -35,7 +36,7 @@ struct ProfileAchievementView: View {
             //            ScrollView{
             ZStack{
                 VStack{
-                                            ProfileButtonComponent(name: $name)
+                    ProfileButtonComponent()
                     
                     Image("maleHomeDisplay")
                         .resizable()
@@ -150,6 +151,7 @@ struct ProfileAchievementView: View {
                         .clipped()
                     }
                     }
+                    .opacity(opacity)
                     
                     Spacer()
                         .frame(height: 100)
@@ -158,7 +160,17 @@ struct ProfileAchievementView: View {
             }
             //            } // End ScrollView
             
-            MainNavigationComponent()
+//            MainNavigationComponent()
+        }
+        .onAppear{
+            withAnimation {
+                opacity = 1
+            }
+        }
+        .onDisappear{
+            withAnimation {
+                opacity = 0
+            }
         }
         
     }

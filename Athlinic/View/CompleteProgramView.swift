@@ -160,7 +160,7 @@ struct CompleteProgramView: View {
                 .padding(.horizontal)
             }
             //            } // End ScrollView
-            MainNavigationComponent()
+//            MainNavigationComponent()
         } // End Z Stack
     }
 }

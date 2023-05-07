@@ -64,7 +64,7 @@ struct BMIResultView: View {
 //                    .font(.system(size: 35))
                     .foregroundColor(.white)
                     .padding()
-                NavigationLink(destination: TodayScheduleView(bmiCategory: $bmiCategory)) {
+                NavigationLink(destination: RouterView(bmiCategory: $bmiCategory)) {
                     Text("NEXT")
                         .font(.system(size: 24, weight: .semibold))
                         .frame(width: 180, height: 52)

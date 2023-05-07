@@ -86,7 +86,7 @@ struct ProfileAchievementDetailView: View {
                 }
                 .padding(.horizontal)
             }
-            MainNavigationComponent()
+//            MainNavigationComponent()
         }
     }
 }

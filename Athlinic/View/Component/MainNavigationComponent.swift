@@ -11,7 +11,8 @@ struct MainNavigationComponent: View {
     
     @State var selection = 0
     @State private var offsetValue: CGFloat = -5
-    @State private var isPositionMarkerHidden = false 
+    @State private var isPositionMarkerHidden = false
+    @Binding var currentPage: String
 
     
     var body: some View {
@@ -27,7 +28,9 @@ struct MainNavigationComponent: View {
                     .padding(.horizontal)
                 
                 // Position Marker
-                if !isPositionMarkerHidden {
+                if (currentPage == "achievement"
+                || currentPage == "today-schedule"
+                || currentPage == "equipments" ) {
                     RoundedRectangle(cornerRadius: 50)
                         .fill(ColorPalette.primary)
                         .frame(width: 100, height: 67)
@@ -44,6 +47,8 @@ struct MainNavigationComponent: View {
                             withAnimation {
                                 self.offsetValue = calculateOffsetByPosition(position: 1) // Change the offset value
                             }
+                            
+                            currentPage = "achievement"
                         }
                     Image("menuIconCalendar")
                         .resizable()
@@ -53,6 +58,7 @@ struct MainNavigationComponent: View {
                             withAnimation {
                                 self.offsetValue = calculateOffsetByPosition(position: 2) // Change the offset value
                             }
+                            currentPage = "today-schedule"
                         }
                     Image("menuIconEquipment")
                         .resizable()
@@ -62,6 +68,7 @@ struct MainNavigationComponent: View {
                             withAnimation {
                                 self.offsetValue = calculateOffsetByPosition(position: 3) // Change the offset value
                             }
+                            currentPage = "equipments"
                         }
                 }
             }
@@ -84,7 +91,7 @@ func calculateOffsetByPosition(position: Int) -> CGFloat {
 struct MainNavigationComponent_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
-            MainNavigationComponent()
+            MainNavigationComponent(currentPage: .constant("something"))
         }
     }
 }
