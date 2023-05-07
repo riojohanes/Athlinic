@@ -37,6 +37,7 @@
 		F991F54C2A04F0E300DDBCD4 /* AchievementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F991F54B2A04F0E300DDBCD4 /* AchievementComponent.swift */; };
 		F991F5682A06997B00DDBCD4 /* DetailAchievementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F991F5672A06997B00DDBCD4 /* DetailAchievementComponent.swift */; };
 		F991F56A2A06A04900DDBCD4 /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F991F5692A06A04900DDBCD4 /* Achievement.swift */; };
+		F991F56C2A07837F00DDBCD4 /* ProfileAchievementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F991F56B2A07837F00DDBCD4 /* ProfileAchievementDetailView.swift */; };
 		F996E41F29FA860A008FE6F4 /* ProfileNameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */; };
 		F996E42129FA9A39008FE6F4 /* ProfileGenderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F996E42029FA9A39008FE6F4 /* ProfileGenderScreen.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		F991F54B2A04F0E300DDBCD4 /* AchievementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementComponent.swift; sourceTree = "<group>"; };
 		F991F5672A06997B00DDBCD4 /* DetailAchievementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAchievementComponent.swift; sourceTree = "<group>"; };
 		F991F5692A06A04900DDBCD4 /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		F991F56B2A07837F00DDBCD4 /* ProfileAchievementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAchievementDetailView.swift; sourceTree = "<group>"; };
 		F996E41E29FA860A008FE6F4 /* ProfileNameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameScreen.swift; sourceTree = "<group>"; };
 		F996E42029FA9A39008FE6F4 /* ProfileGenderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGenderScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 				F991F5452A03A1BF00DDBCD4 /* ProfileEditView.swift */,
 				F991F5472A03EAA900DDBCD4 /* ProfileAchievementView.swift */,
 				65AD2E872A04B9B700DF17D8 /* ExcerciseDetailView.swift */,
+				F991F56B2A07837F00DDBCD4 /* ProfileAchievementDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				6593B53B2A04C21700887B1A /* Excercise+CoreDataClass.swift in Sources */,
 				6593B53F2A04C27B00887B1A /* Activity+CoreDataClass.swift in Sources */,
 				65AC436D2A04D6C400DA01A6 /* GifView.swift in Sources */,
+				F991F56C2A07837F00DDBCD4 /* ProfileAchievementDetailView.swift in Sources */,
 				2FA54A9E29E90E9F00C436C1 /* AthlinicApp.swift in Sources */,
 				F991F5482A03EAA900DDBCD4 /* ProfileAchievementView.swift in Sources */,
 				6593B53C2A04C21700887B1A /* Excercise+CoreDataProperties.swift in Sources */,

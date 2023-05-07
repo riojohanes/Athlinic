@@ -22,7 +22,6 @@ struct DetailAchievementComponent: View {
                     .font(.system(size: 22, weight: .bold))
                     .padding(.horizontal)
                     .padding(.vertical, 5)
-                
                 Text(achievement.description)
                     .font(.system(size: 18, weight: .medium))
                     .padding(.horizontal)

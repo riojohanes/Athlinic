@@ -7,11 +7,13 @@
 
 import Foundation
 
-struct Achievement {
-    let name: String
-    let description: String
-    let imageName: String
+struct Achievement: Identifiable, Hashable {
+    var id = UUID()
+    var name: String
+    var description: String
+    var imageName: String
 }
+
 
 let achievements: [Achievement] = [
        Achievement(name: "Bronze Dumbbell", description: "You've completed 50x lift with dumbbell!", imageName: "bronze1"),
