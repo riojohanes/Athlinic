@@ -1,27 +1,44 @@
 //
 //  GifView.swift
-//  Athlinic
+//  GifView_SwiftUI
 //
-//  Created by Rajif Afif on 05/05/23.
+//  Created by Pedro Rojas on 16/08/21.
 //
 
 import SwiftUI
 import WebKit
 
 struct GifView: UIViewRepresentable {
-    typealias UIViewType = WKWebView
-    
-    let gifName: String
-    
+    private let name: String
+
+    init(_ name: String) {
+        self.name = name
+    }
+
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
-        webView.contentMode = .scaleAspectFit
+            let url = Bundle.main.url(forResource: name, withExtension: "gif")!
+        let data = try! Data(contentsOf: url)
+        webView.load(
+            data,
+            mimeType: "image/gif",
+            characterEncodingName: "UTF-8",
+            baseURL: url.deletingLastPathComponent()
+        )
+        webView.scrollView.isScrollEnabled = false
+
         return webView
     }
-    
+
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        guard let gifURL = Bundle.main.url(forResource: gifName, withExtension: "gif") else { return }
-        let request = URLRequest(url: gifURL)
-        uiView.load(request)
+        uiView.reload()
+    }
+
+}
+
+
+struct GifImage_Previews: PreviewProvider {
+    static var previews: some View {
+        GifView("Barbell-Bench-Press")
     }
 }

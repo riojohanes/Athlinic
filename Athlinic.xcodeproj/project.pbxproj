@@ -17,6 +17,9 @@
 		2FC3119C2A03A66700778B6F /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC3119A2A03A66700778B6F /* Profile+CoreDataProperties.swift */; };
 		2FCDB51529EF9F2800E32DB6 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */; };
 		6534CBFA2A07D97400BE2FC2 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6534CBF92A07D97400BE2FC2 /* RouterView.swift */; };
+		6534CBFD2A0882BC00BE2FC2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6534CBFC2A0882BC00BE2FC2 /* SDWebImageSwiftUI */; };
+		6534CBFF2A088A0300BE2FC2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6534CBFE2A088A0300BE2FC2 /* WebView.swift */; };
+		6534CC022A088C8E00BE2FC2 /* Barbell-Bench-Press.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6534CC012A088C8E00BE2FC2 /* Barbell-Bench-Press.gif */; };
 		6593B5382A04BE4900887B1A /* ProfileButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6593B5372A04BE4900887B1A /* ProfileButtonComponent.swift */; };
 		6593B53B2A04C21700887B1A /* Excercise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6593B5392A04C21700887B1A /* Excercise+CoreDataClass.swift */; };
 		6593B53C2A04C21700887B1A /* Excercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6593B53A2A04C21700887B1A /* Excercise+CoreDataProperties.swift */; };
@@ -55,6 +58,8 @@
 		2FC3119A2A03A66700778B6F /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Profile+CoreDataProperties.swift"; path = "../../Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2FCDB51429EF9F2800E32DB6 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		6534CBF92A07D97400BE2FC2 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
+		6534CBFE2A088A0300BE2FC2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		6534CC012A088C8E00BE2FC2 /* Barbell-Bench-Press.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Barbell-Bench-Press.gif"; sourceTree = "<group>"; };
 		6593B5372A04BE4900887B1A /* ProfileButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonComponent.swift; sourceTree = "<group>"; };
 		6593B5392A04C21700887B1A /* Excercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Excercise+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6593B53A2A04C21700887B1A /* Excercise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Excercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6534CBFD2A0882BC00BE2FC2 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +131,7 @@
 		2FA54A9C29E90E9F00C436C1 /* Athlinic */ = {
 			isa = PBXGroup;
 			children = (
+				6534CC002A088C7B00BE2FC2 /* Gifs */,
 				2F5A48822A00D33A00074722 /* Model */,
 				2FCDB51329EF9EEA00E32DB6 /* View */,
 				2FA54A9D29E90E9F00C436C1 /* AthlinicApp.swift */,
@@ -166,6 +173,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6534CC002A088C7B00BE2FC2 /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				6534CC012A088C8E00BE2FC2 /* Barbell-Bench-Press.gif */,
+			);
+			path = Gifs;
+			sourceTree = "<group>";
+		};
 		65FB21DB2A0226AB00464A66 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +192,7 @@
 				65AC436C2A04D6C400DA01A6 /* GifView.swift */,
 				F991F54B2A04F0E300DDBCD4 /* AchievementComponent.swift */,
 				F991F5672A06997B00DDBCD4 /* DetailAchievementComponent.swift */,
+				6534CBFE2A088A0300BE2FC2 /* WebView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -197,6 +213,9 @@
 			dependencies = (
 			);
 			name = Athlinic;
+			packageProductDependencies = (
+				6534CBFC2A0882BC00BE2FC2 /* SDWebImageSwiftUI */,
+			);
 			productName = Athlinic;
 			productReference = 2FA54A9A29E90E9F00C436C1 /* Athlinic.app */;
 			productType = "com.apple.product-type.application";
@@ -225,6 +244,9 @@
 				Base,
 			);
 			mainGroup = 2FA54A9129E90E9F00C436C1;
+			packageReferences = (
+				6534CBFB2A0882BC00BE2FC2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 2FA54A9B29E90E9F00C436C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6534CC022A088C8E00BE2FC2 /* Barbell-Bench-Press.gif in Resources */,
 				2FA54AA529E90EA000C436C1 /* Preview Assets.xcassets in Resources */,
 				2FA54AA229E90EA000C436C1 /* Assets.xcassets in Resources */,
 			);
@@ -272,6 +295,7 @@
 				F916068B29FBAD2C003DA196 /* ProfileMeasurement.swift in Sources */,
 				6593B53B2A04C21700887B1A /* Excercise+CoreDataClass.swift in Sources */,
 				6593B53F2A04C27B00887B1A /* Activity+CoreDataClass.swift in Sources */,
+				6534CBFF2A088A0300BE2FC2 /* WebView.swift in Sources */,
 				65AC436D2A04D6C400DA01A6 /* GifView.swift in Sources */,
 				F991F56C2A07837F00DDBCD4 /* ProfileAchievementDetailView.swift in Sources */,
 				2FA54A9E29E90E9F00C436C1 /* AthlinicApp.swift in Sources */,
@@ -485,6 +509,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6534CBFB2A0882BC00BE2FC2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6534CBFC2A0882BC00BE2FC2 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6534CBFB2A0882BC00BE2FC2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2FA54AA829E90EA000C436C1 /* Athlinic.xcdatamodeld */ = {

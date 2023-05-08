@@ -8,76 +8,80 @@
 import SwiftUI
 
 struct ActivityCardComponent: View {
-    let activity: Activity.Struct
+    @State var activity: Activity.Struct
     @State var isChecked: Bool = false
     
     var body: some View {
-        HStack(spacing: 15) {
-            ZStack{
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            gradient: Gradient(colors: [ColorPalette.iconGradientEnd, ColorPalette.iconGradientStart]),
-                            center: .center,
-                            startRadius: 50,
-                            endRadius: 0
+            HStack(spacing: 15) {
+                ZStack{
+                    Circle()
+                        .fill(
+                            RadialGradient(
+                                gradient: Gradient(colors: [ColorPalette.iconGradientEnd, ColorPalette.iconGradientStart]),
+                                center: .center,
+                                startRadius: 50,
+                                endRadius: 0
+                            )
                         )
-                    )
-                Image("menuIconEquipment")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-            }
-            .frame(width: 55)
-            
-            VStack(alignment: .leading) {
-                Text(activity.excerciseName)
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .font(.system(size: 20))
+                    Image("menuIconEquipment")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30)
+                }
+                .frame(width: 55)
                 
-                HStack{
-                    VStack(alignment: .leading){
-                        Text("\(activity.set) set (\(String(activity.rep)) rep")
-                            .font(.subheadline)
+                
+                NavigationLink(destination: ExcerciseDetailView(activity: $activity)) {
+                    VStack(alignment: .leading) {
+                        Text(activity.excerciseName)
+                            .font(.headline)
                             .foregroundColor(.white)
+                            .font(.system(size: 20))
                         
-                        Text("\(activity.rest)s rest")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                            
+                        HStack{
+                            VStack(alignment: .leading){
+                                Text("\(activity.set) set (\(String(activity.rep)) rep")
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                                
+                                Text("\(activity.rest)s rest")
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                                
+                            }
+                            Spacer()
+                            //                    ActivityCheckbox(isChecked: $isChecked)
+                            //                        .offset(y: -9)
+                        }
+                        
                     }
-                    Spacer()
-//                    ActivityCheckbox(isChecked: $isChecked)
-//                        .offset(y: -9)
+                    }
+                
+                if (isChecked) {
+                    Image("Checked")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30)
+                        .padding()
+                    
+                } else {
+                    Image("Unchecked")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30)
+                        .padding()
+                        .onTapGesture {
+                            isChecked = true
+                        }
+                    
                 }
                 
             }
-            
-            if (isChecked) {
-                Image("Checked")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-                    .padding()
-
-            } else {
-                Image("Unchecked")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-                    .padding()
-                    .onTapGesture {
-                        isChecked = true
-                    }
-
-            }
-            
-        }
-        .padding(10)
-        .background(ColorPalette.cardBackground)
-        .cornerRadius(20)
-        .shadow(radius: 5)
+            .padding(10)
+            .background(ColorPalette.cardBackground)
+            .cornerRadius(20)
+            .shadow(radius: 5)
+            .navigationBarBackButtonHidden(true)
     }
 }
 

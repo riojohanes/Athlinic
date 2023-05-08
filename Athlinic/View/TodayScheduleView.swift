@@ -102,7 +102,7 @@ struct TodayScheduleView: View {
                                         activities = [
                                                 Activity.Struct(excerciseName: "Bench Press", set: 5, rep: "12, 10, 8, 6, 12", rest: "60"),
                                                 Activity.Struct(excerciseName: "Incline Dumble Press", set: 4, rep: "12, 10, 8, 6", rest: "45-60"),
-                                                Activity.Struct(excerciseName: "Decline Barbell Bench Press", set: 5, rep: "10, 10, 10, 10", rest: "45-60")
+                                                Activity.Struct(excerciseName: "Decline Barbell", set: 5, rep: "10, 10, 10, 10", rest: "45-60")
                                         ]
                                     }
                                 }
