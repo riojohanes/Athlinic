@@ -87,7 +87,7 @@ struct ExcerciseDetailView: View {
 //                                                GifView("Barbell-Bench-Press")
 //                                                GifView("barbellBenchPress")
                                                 
-                                                Image("maleHomeDisplay")
+                                                Image("BarbellBenchPressImage")
                                                     .resizable()
                                                     .aspectRatio(contentMode: .fit)
                                                     .frame(width: 200, height: 200)
