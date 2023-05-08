@@ -31,6 +31,7 @@ struct RouterView: View {
             
             if (currentPage != "profile") {
                 VStack{
+//                    Text("asdasdasd")
                     ProfileButtonComponent()
                         .onTapGesture {
                             currentPage = "profile"

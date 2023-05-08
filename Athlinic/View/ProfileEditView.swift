@@ -170,7 +170,7 @@ struct ProfileEditView: View {
             .navigationBarBackButtonHidden(true)
             //            } // End ScrollView
             
-//            MainNavigationComponent()
+//            MainNavigationComponent(currentPage: .constant("profile"))
         }
     }
     private func getName() -> String? {

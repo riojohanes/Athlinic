@@ -172,6 +172,7 @@ struct ProfileAchievementView: View {
                 opacity = 0
             }
         }
+        .navigationBarBackButtonHidden(true)
         
     }
 }

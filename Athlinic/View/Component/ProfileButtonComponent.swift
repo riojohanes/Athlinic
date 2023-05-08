@@ -19,12 +19,12 @@ struct ProfileButtonComponent: View {
                 .foregroundColor(.white)
                 .font(.system(size: 24))
             
-            NavigationLink(destination: ProfileEditView()) {
+//            NavigationLink(destination: ProfileEditView()) {
                 Image("menuIconProfile")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 40)
-            }
+//            }
             
         }
         .padding(.horizontal)

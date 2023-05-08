@@ -278,6 +278,7 @@ struct ExcerciseDetailView: View {
             
 //            MainNavigationComponent()
         } // End Z Stack
+        .navigationBarBackButtonHidden(true)
     }
 }
 
