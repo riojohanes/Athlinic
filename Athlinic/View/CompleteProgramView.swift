@@ -60,7 +60,8 @@ struct CompleteProgramView: View {
                             CardBackgroundComponent()
                             VStack {
                                 HStack {
-                                    NavigationLink(destination: TodayScheduleView(bmiCategory: $bmiCategory)) {
+                                    NavigationLink(destination:
+                                                    RouterView(bmiCategory: .constant("homepage"))) {
                                         Image(systemName: "chevron.left")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
@@ -160,7 +161,7 @@ struct CompleteProgramView: View {
                 .padding(.horizontal)
             }
             //            } // End ScrollView
-//            MainNavigationComponent()
+            MainNavigationComponent(currentPage: .constant("homepage"))
         } // End Z Stack
     }
 }
