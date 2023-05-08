@@ -31,9 +31,9 @@ struct CompleteProgramView: View {
                     HStack{
                         Spacer()
                         
-                        Text("JHON DOE")
-                            .foregroundColor(.white)
-                            .font(.system(size: 24))
+//                        Text("JHON DOE")
+//                            .foregroundColor(.white)
+//                            .font(.system(size: 24))
                         
                         NavigationLink(destination: ProfileEditView()) {
                             Image("menuIconProfile")
@@ -161,7 +161,7 @@ struct CompleteProgramView: View {
                 .padding(.horizontal)
             }
             //            } // End ScrollView
-            MainNavigationComponent(currentPage: .constant("homepage"))
+            MainNavigationComponent(currentPage: .constant("Normal"))
         } // End Z Stack
     }
 }
